@@ -1,0 +1,118 @@
+.headerContainer {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 20px 0;
+
+}
+
+.headerContent {
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    width: 108.19px;
+    height: 31.78px;
+}
+
+.menuIcon {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #272727;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 32px;
+}
+
+.navLink {
+    color: #272727;
+    font-size: 16px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+    text-decoration: none;
+}
+
+.contactButton {
+    padding: 10px 18px;
+    background-color: #FF006B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 700;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .headerContent {
+        padding: 0 20px;
+    }
+
+    .navigation {
+        gap: 20px;
+    }
+
+    .navLink {
+        font-size: 14px;
+    }
+
+    .contactButton {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .headerContainer {
+        padding-top: 10px;
+        /* Adds padding to ensure margin from top */
+    }
+
+    .headerContent {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .menuIcon {
+        display: block;
+    }
+
+    .navigation {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        gap: 10px;
+    }
+
+    .showNav {
+        display: flex;
+        position: relative;
+        padding-bottom: 20px;
+        /* Adds padding below the navigation for space */
+    }
+
+    .contactButton {
+        width: 100%;
+        position: relative;
+        margin-top: 10px;
+        /* Ensures button is below the navigation menu */
+    }
+}
