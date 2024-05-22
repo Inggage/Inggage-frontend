@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import styles from "./Form.module.css";
 import { useNavigate } from "react-router-dom";
+import { database } from '../../firebase-config';
+import { ref, set, push } from 'firebase/database';
+
 
 const InputField = ({ label, type, name, value, onChange, placeholder }) => (
-  <div className={styles.section}>
-    <div className={`${styles.titleContainer}`}>
-      <span className={styles.title}>{label}</span>
-      <span className={styles.asterisk}>*</span>
-    </div>
-    <div className={styles.inputContainer}>
+  <><div className={styles.section}>
+    <div className={styles.titleContainer}/>
+    <span className={styles.title}>{label}</span>
+    <span className={styles.asterisk}>*</span>
+  </div><div className={styles.inputContainer}>
       <input
         type={type}
         name={name}
@@ -16,10 +18,9 @@ const InputField = ({ label, type, name, value, onChange, placeholder }) => (
         onChange={onChange}
         className={styles.inputText}
         placeholder={placeholder}
-        aria-label={label}
-      />
+        aria-label={label} />
     </div>
-  </div>
+  </>
 );
 
 const DropdownField = ({ label, name, value, onChange, options }) => (
@@ -59,29 +60,26 @@ const Form = () => {
   };
 
   const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    localStorage.setItem("formData", JSON.stringify(formData));
-    navigate("/dashboard");
-    // fetch("http://localhost:3001/form/submit", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(formData),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log("Response data:", data);
-    //     alert(JSON.stringify(data, null, 2));
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //     alert("Failed to send data: " + error.message);
-    //   });
-
-      
+    
+    const formDataRef = ref(database, 'formData/');
+    push(formDataRef, {
+      userType: formData.userType,
+      socialMediaPresence: formData.socialMediaPresence,
+      followerCount: formData.followerCount,
+      collaborationInterest: formData.collaborationInterest
+    }).then(() => {
+      navigate("/dashboard");
+      alert("Congrats, We will get back to you soon!");
+      console.log("+++data sent", formData);
+    }).catch((error) => {
+      console.error("Error:", error);
+      alert("Something went wrong. Try Again!!");
+    });
   };
+  
 
   const userTypeOptions = [
     { value: "", label: "Select Type" },
@@ -138,7 +136,7 @@ const Form = () => {
         <div className={styles.buttonContainer}>
           <button
             type="submit"
-            className={`${styles.button} ${styles.submitButton}`}
+            className={styles.submitButton}
           >
             Submit
           </button>
