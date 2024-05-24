@@ -4,27 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import formImage from "../../assets/formImage.png";
 
-const InputField = ({ label, type, name, value, onChange, placeholder }) => (
-  <>
-    <div className={styles.section}>
-      <div className={styles.titleContainer} />
-      <span className={styles.title}>
-        {label} <span className={styles.asterisk}>*</span>
-      </span>
-    </div>
-    <div className={styles.inputContainer}>
-      <input
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        className={styles.inputText}
-        placeholder={placeholder}
-        aria-label={label}
-      />
-    </div>
-  </>
-);
+
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -53,38 +33,56 @@ const SignupForm = () => {
           <img src={formImage} alt="formimage"></img>
         </div>
         <div className={styles.formContainer}>
-          <form onSubmit={handleSubmit} className={styles.form}>
-            <InputField
-              label="Name"
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Enter your Name"
-            />
-            <InputField
-              label="Email"
-              type="text"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Enter your Email"
-            />
-            <InputField
-              label="Password"
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Enter your password?"
-            />
-            <div className={styles.buttonContainer}>
-              <button type="submit" className={styles.submitButton}>
-                Submit
-              </button>
-            </div>
-          </form>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <h2 className={styles.heading}>Almost there...</h2>
+        <p className={styles.description}>
+          We need a few details, it will take less than 2-3 mins to complete
+        </p>
+
+        <label className={styles.label}>You are signing up as</label>
+        <div className={styles.buttonRow}>
+          <button
+            type="button"
+            className={styles.authButton}
+            onClick={() => setFormData((prev) => ({ ...prev, userType: "Individual" }))}
+          >
+            Individual
+          </button>
+          <button
+            type="button"
+            className={styles.authButton}
+            onClick={() => setFormData((prev) => ({ ...prev, userType: "Company" }))}
+          >
+            Company
+          </button>
         </div>
+
+        <label className={styles.label}>Link to your website</label>
+        <input
+          className={styles.inputField}
+          type="text"
+          name="websiteLink"
+          value={formData.websiteLink}
+          onChange={handleChange}
+          placeholder="Enter your website link"
+        />
+
+        <label className={styles.label}>Reason for Approaching us</label>
+        <textarea
+          className={styles.textarea}
+          name="reasonForApproach"
+          value={formData.reasonForApproach}
+          onChange={handleChange}
+          placeholder="Enter your reason"
+        />
+
+        <div className={styles.buttonContainer}>
+          <button type="submit" className={styles.submitButton}>
+            Continue
+          </button>
+        </div>
+      </form>
+    </div>
       </div>
     </>
   );
