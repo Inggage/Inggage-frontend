@@ -3,9 +3,10 @@
     justify-content: center;
     align-items: center;
     gap: 32px;
-    padding: 50px;
+    padding: 10px 30px;
     box-sizing: border-box;
-    min-height: 100vh;
+    min-height: 100%;
+    background-color: #ededed;
 }
 
 .landing-container>* {

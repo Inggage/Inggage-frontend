@@ -7,10 +7,12 @@ function Dashboard() {
 
   const handleLogout = () => {
     localStorage.removeItem("formData");
+    localStorage.removeItem("profile");
     navigate("/");
   };
 
   const formData = JSON.parse(localStorage.getItem("formData"));
+  const profile = JSON.parse(localStorage.getItem("profile"));
   return (
     <>
       <div className={styles.dashContainer}>
@@ -37,6 +39,16 @@ function Dashboard() {
                   Interest in Collaboration: {formData.collaborationInterest}
                 </p>
               </div>
+            )}
+
+            {profile && (
+              <div>
+                <p>{profile.user._id}</p>
+                <p>{profile.user.username}</p>
+                <p>{profile.user.firstname}</p>
+                <p>{profile.user.lastname}</p>
+
+                </div>
             )}
           </div>
           <div className={styles.dashButton}>

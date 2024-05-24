@@ -15,6 +15,8 @@ const Footer = () => {
         />
         <div className={styles.socialIcons}>
           {/* Social icons will go here */}
+          <p>hello</p>
+          <p>world</p>
         </div>
         <div className={styles.divider}></div>
         <h2 className={styles.title}>Seasoned. Nimble. Remote.</h2>
@@ -25,9 +27,10 @@ const Footer = () => {
         </p>
         <div className={styles.buttonGroup}>
           {/* Button group will go here */}
+         
         </div>
         <div className={styles.footerText}>
-          © 2024 inGage Media. All Rights Reserved.
+          © 2024 inGGage Media. All Rights Reserved.
         </div>
       </div>
     </div>

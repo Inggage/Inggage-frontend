@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
 import logo from "../../assets/images/Logo.png";
+import { Link,useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
-
+  const navigate = useNavigate();
+  
   const toggleNav = () => {
     setIsNavVisible(!isNavVisible);
   };
+
+  const handleClick = ()=>{
+    navigate("/signupform")
+  }
 
   return (
     <header className={styles.headerContainer}>
@@ -33,8 +39,15 @@ const Header = () => {
           <a href="/about" className={styles.navLink}>
             About
           </a>
+          <a href="/contactus" className={styles.navLink}>
+            Contact us
+          </a>
+          <div>
+        <button onClick={handleClick} className={styles.signFormButton}>Signup Form</button>
+        
+        </div>
         </nav>
-        <button className={styles.contactButton}>Contact Us</button>
+        
       </div>
     </header>
   );
