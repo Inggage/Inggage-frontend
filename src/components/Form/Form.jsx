@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import styles from "./Form.module.css";
 import { useNavigate } from "react-router-dom";
-import { database } from '../../firebase-config';
-import { ref, set, push } from 'firebase/database';
-
 
 const InputField = ({ label, type, name, value, onChange, placeholder }) => (
-  <><div className={styles.section}>
-    <div className={styles.titleContainer}/>
-    <span className={styles.title}>{label}</span>
-    <span className={styles.asterisk}>*</span>
-  </div><div className={styles.inputContainer}>
+  <>
+    <div className={styles.section}>
+      <div className={styles.titleContainer} />
+      <span className={styles.title}>
+        {label} <span className={styles.asterisk}>*</span>
+      </span>
+    </div>
+    <div className={styles.inputContainer}>
       <input
         type={type}
         name={name}
@@ -18,7 +18,8 @@ const InputField = ({ label, type, name, value, onChange, placeholder }) => (
         onChange={onChange}
         className={styles.inputText}
         placeholder={placeholder}
-        aria-label={label} />
+        aria-label={label}
+      />
     </div>
   </>
 );
@@ -63,22 +64,9 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
-    const formDataRef = ref(database, 'formData/');
-    push(formDataRef, {
-      userType: formData.userType,
-      socialMediaPresence: formData.socialMediaPresence,
-      followerCount: formData.followerCount,
-      collaborationInterest: formData.collaborationInterest
-    }).then(() => {
-      navigate("/dashboard");
-      alert("Congrats, We will get back to you soon!");
-      console.log("+++data sent", formData);
-    }).catch((error) => {
-      console.error("Error:", error);
-      alert("Something went wrong. Try Again!!");
-    });
-  };
+    navigate("/dashboard")
+  }
+
   
 
   const userTypeOptions = [
@@ -134,10 +122,7 @@ const Form = () => {
           placeholder="What do you seek in collaborations?"
         />
         <div className={styles.buttonContainer}>
-          <button
-            type="submit"
-            className={styles.submitButton}
-          >
+          <button type="submit" className={styles.submitButton}>
             Submit
           </button>
         </div>

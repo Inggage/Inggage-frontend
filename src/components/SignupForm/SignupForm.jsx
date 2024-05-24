@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styles from "./SignupForm.module.css";
 import { useNavigate } from "react-router-dom";
-import { database } from "../../firebase-config";
-import { ref, push } from "firebase/database";
+
 import formImage from "../../assets/formImage.png";
 
 const InputField = ({ label, type, name, value, onChange, placeholder }) => (
@@ -44,22 +43,7 @@ const SignupForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     localStorage.setItem('formData', JSON.stringify(formData));
-    const formDataRef = ref(database, "formData/");
-    push(formDataRef, {
-      name: formData.name,
-      email: formData.email,
-      password: formData.password,
-    })
-      .then(() => {
-        alert("Congrats, We will get back to you soon!");
-        navigate("/dashboard");
-
-        console.log("+++data sent", formData);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("Something went wrong. Try Again!!");
-      });
+    navigate("/dashboard")
   };
 
   return (
