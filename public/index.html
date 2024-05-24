@@ -7,26 +7,30 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
-    />
+      content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-   
+
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    
+
     <title>Inggage</title>
+    <script async
+      src="https://www.googletagmanager.com/gtag/js?id=G-VDKF99VV2H"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VDKF99VV2H');
+</script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script type="module">
-      // Import the functions you need from the SDKs you need
+      
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-    
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+     
       const firebaseConfig = {
         apiKey: "AIzaSyB3nX0dbh7sX_WBn-QBpjN_FIKVydXhJ_I",
         authDomain: "inggage-c3f5d.firebaseapp.com",
