@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "./Form.module.css";
 import { useNavigate } from "react-router-dom";
+import { database } from '../../firebase-config';
+import { ref, set, push } from 'firebase/database';
 
 const InputField = ({ label, type, name, value, onChange, placeholder }) => (
   <>
@@ -64,9 +66,22 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate("/dashboard")
-  }
-
+    
+    const formDataRef = ref(database, 'formData/');
+    push(formDataRef, {
+      userType: formData.userType,
+      socialMediaPresence: formData.socialMediaPresence,
+      followerCount: formData.followerCount,
+      collaborationInterest: formData.collaborationInterest
+    }).then(() => {
+      navigate("/dashboard");
+      alert("Congrats, We will get back to you soon!");
+      console.log("+++data sent", formData);
+    }).catch((error) => {
+      console.error("Error:", error);
+      alert("Something went wrong. Try Again!!");
+    });
+  };
   
 
   const userTypeOptions = [
