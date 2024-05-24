@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Form.module.css";
 import { useNavigate } from "react-router-dom";
 
-const InputField = ({ label, type, name, value, onChange, placeholder }) =>{ (
+const InputField = ({ label, type, name, value, onChange, placeholder }) => (
   <>
     <div className={styles.section}>
       <div className={styles.titleContainer} />
@@ -22,7 +22,7 @@ const InputField = ({ label, type, name, value, onChange, placeholder }) =>{ (
       />
     </div>
   </>
-)};
+);
 
 const DropdownField = ({ label, name, value, onChange, options }) => (
   <div className={styles.section}>
