@@ -9,6 +9,7 @@ import About from "./pages/About/About";
 import Services from "./pages/Services/Services";
 import Contact from "./pages/ContactUs/Contact";
 import Pricing from "./pages/Pricing/Pricing";
+import SignupForm2 from "./components/SignUpForm2/SignupForm2";
 
 const App = () => {
   return (
@@ -24,6 +25,8 @@ const App = () => {
           <Route path="/contactus" element={<Contact />}></Route>
           <Route path="/pricing" element={<Pricing />}></Route>
           <Route path="/Signupform" element={<SignupForm />}></Route>
+          <Route path="/Signupform2" element={<SignupForm2 />}></Route>
+
         </Routes>
       </Router>
       <Footer />

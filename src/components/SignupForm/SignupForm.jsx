@@ -1,16 +1,12 @@
+/* eslint-disable no-useless-escape */
 import React, { useState } from "react";
 import styles from "./SignupForm.module.css";
 import { useNavigate } from "react-router-dom";
-
 import formImage from "../../assets/formImage.png";
-
-
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
-    password: "",
   });
 
   const handleChange = (e) => {
@@ -22,8 +18,20 @@ const SignupForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    localStorage.setItem('formData', JSON.stringify(formData));
-    navigate("/dashboard")
+    // eslint-disable-next-line no-useless-escape
+
+    if (!formData.email) {
+      alert("type email");
+    } else {
+      if (
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formData.email)
+      ) {
+        localStorage.setItem("formData", JSON.stringify(formData));
+        navigate("/Signupform2");
+      } else {
+        alert("Wrong Email-Try again!!");
+      }
+    }
   };
 
   return (
@@ -33,56 +41,36 @@ const SignupForm = () => {
           <img src={formImage} alt="formimage"></img>
         </div>
         <div className={styles.formContainer}>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <h2 className={styles.heading}>Almost there...</h2>
-        <p className={styles.description}>
-          We need a few details, it will take less than 2-3 mins to complete
-        </p>
-
-        <label className={styles.label}>You are signing up as</label>
-        <div className={styles.buttonRow}>
-          <button
-            type="button"
-            className={styles.authButton}
-            onClick={() => setFormData((prev) => ({ ...prev, userType: "Individual" }))}
-          >
-            Individual
-          </button>
-          <button
-            type="button"
-            className={styles.authButton}
-            onClick={() => setFormData((prev) => ({ ...prev, userType: "Company" }))}
-          >
-            Company
-          </button>
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <h2 className={styles.heading}>Sign Up</h2>
+            <p className={styles.description}>
+              We will require your email ID to further proceed and get in touch
+              with our team
+            </p>
+            <input
+              className={styles.inputField}
+              type="text"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your Email ID"
+            />
+            <div className={styles.orText}>OR</div>
+            <div className={styles.buttonContainer}>
+              <button type="button" className={styles.authButton}>
+                Continue with Google
+              </button>
+              <button type="button" className={styles.authButton}>
+                Continue with Facebook
+              </button>
+            </div>
+            <div className={styles.buttonContainer}>
+              <button type="submit" className={styles.continueButton}>
+                CONTINUE
+              </button>
+            </div>
+          </form>
         </div>
-
-        <label className={styles.label}>Link to your website</label>
-        <input
-          className={styles.inputField}
-          type="text"
-          name="websiteLink"
-          value={formData.websiteLink}
-          onChange={handleChange}
-          placeholder="Enter your website link"
-        />
-
-        <label className={styles.label}>Reason for Approaching us</label>
-        <textarea
-          className={styles.textarea}
-          name="reasonForApproach"
-          value={formData.reasonForApproach}
-          onChange={handleChange}
-          placeholder="Enter your reason"
-        />
-
-        <div className={styles.buttonContainer}>
-          <button type="submit" className={styles.submitButton}>
-            Continue
-          </button>
-        </div>
-      </form>
-    </div>
       </div>
     </>
   );

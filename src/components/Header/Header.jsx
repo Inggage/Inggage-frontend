@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
 import logo from "../../assets/images/Logo.png";
-import { Link,useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);

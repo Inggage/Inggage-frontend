@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import styles from "./Form.module.css";
 import { useNavigate } from "react-router-dom";
 import { database } from "../../firebase-config";
-import { ref, set, push } from "firebase/database";
+import { ref,  push } from "firebase/database";
 
 const Form = () => {
   const [formData, setFormData] = useState({
-    userType: "",
-    socialMediaPresence: "",
-    followerCount: "",
-    collaborationInterest: "",
+   email:""
   });
 
   const handleChange = (e) => {
@@ -24,10 +21,8 @@ const Form = () => {
 
     const formDataRef = ref(database, "formData/");
     push(formDataRef, {
-      userType: formData.userType,
-      socialMediaPresence: formData.socialMediaPresence,
-      followerCount: formData.followerCount,
-      collaborationInterest: formData.collaborationInterest,
+      email : formData.email,
+      
     })
       .then(() => {
         navigate("/dashboard");
@@ -45,15 +40,15 @@ const Form = () => {
       <form onSubmit={handleSubmit} className={styles.form}>
         <h2 className={styles.heading}>Sign Up</h2>
         <p className={styles.description}>
+        <i class="bi bi-google"></i>
           We will require your email ID to further proceed and get in touch with
           our team
         </p>
         <input
           className={styles.inputField}
-         
           type="text"
           name="email"
-          value={formData.collaborationInterest}
+          value={formData.email}
           onChange={handleChange}
           placeholder="Enter your Email ID"
         />

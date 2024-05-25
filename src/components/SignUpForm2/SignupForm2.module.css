@@ -23,68 +23,65 @@
 .heading {
   text-align: left;
   margin-bottom: 10px;
-  color: white;
 }
 
 .description {
-  margin-bottom: 20px;
-  color: white;
+  margin-bottom: 10px;
 }
 
-.inputField {
-  width: 90%;
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
+.label {
+  display: block;
+  margin-bottom: 7px;
 }
 
-.orText {
-  text-align: center;
-  color: white;
-  margin-bottom: 20px;
-}
-
-
-
-.buttonContainer {
+.buttonRow {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 7px;
 }
-.authButton,
-.submitButton,
-.continueButton {
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 20px;
+
+.inputField,
+.textarea {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 7px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
   box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
-  cursor: pointer;
+}
+
+.textarea {
+  height: 70px;
+  resize: none;
 }
 
 .authButton {
-  background-color: #f6f6f6;
-  color: rgba(11, 11, 11, 0.811);
-  font-weight: bold;
+  width: 48%;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
+  cursor: pointer;
+  background-color: #9819ec;
+  color: white;
 }
 
 .authButton:last-child {
   background-color: #ffffff;
-  color: rgba(18, 16, 16, 0.751);
-  font-weight: bold;
+  color: rgb(10, 10, 10);
 }
 
-.continueButton {
+.submitButton {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
   background-color: #000000;
-  color: rgb(236, 236, 236);
-  border-radius: 20px;
-  margin-top: 12px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
   margin-bottom: 12px;
-  font-weight: bold;
 }
-
 
 @media (max-width: 768px) {
   .form {
@@ -194,7 +191,6 @@
     padding: 16px;
     width: 100%;
     z-index: 1;
-    margin-top: -200px;
     margin-bottom: 30px;
     background-color: #34d1ed7e;
   }
