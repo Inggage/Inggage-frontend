@@ -6,26 +6,43 @@ import { useNavigate } from "react-router-dom";
 import formImage from "../../assets/formImage.png";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import { auth, facebook } from "../../firebase-config";
+import { signInWithPopup, signOut } from "firebase/auth";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
     email: "",
   });
 
+  const [isLogin, setIsLogin] = useState(false); // Manages whether the user is logged in or not
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
+
   const navigate = useNavigate();
 
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => setUser(codeResponse),
     onError: (error) => console.log("Login Failed:", error),
-    
+  });
+
+  const loginFace = async (provider) => {
+    try {
+      //authenticate the user by calling a popup
+      const result = await signInWithPopup(auth, provider);
+      //fetch the user data
+      setUser(result.user);
+      console.log(user) // Stores user data in the 'user' state
+      setIsLogin(true);
+      navigate("/Signupform2") // Sets the 'isLogin' state to true, indicating the user is logged in
+    } catch (e) {
+      //handle the error when login fails
+      console.log(`login error ${e}`);
+      setIsLogin(false); // Sets 'isLogin' to false on login failure
+    }
   }
- 
-);
 
   useEffect(() => {
-    if (user) {
+    if (user && user.access_token ) {
       axios
         .get(
           `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
@@ -39,11 +56,12 @@ const SignupForm = () => {
         .then((res) => {
           setProfile(res.data);
           console.log(profile);
-          navigate("/Signupform2")
+          navigate("/Signupform2");
         })
         .catch((err) => console.log(err));
     }
   }, [user]);
+
   const logOut = () => {
     googleLogout();
     setProfile(null);
@@ -53,8 +71,6 @@ const SignupForm = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
-  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -104,7 +120,7 @@ const SignupForm = () => {
               >
                 Continue with Google
               </button>
-              <button type="button" className={styles.authButton}>
+              <button type="button" onClick={() => loginFace(facebook)} className={styles.authButton}>
                 Continue with Facebook
               </button>
             </div>
