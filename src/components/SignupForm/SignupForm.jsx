@@ -1,20 +1,60 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable no-useless-escape */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./SignupForm.module.css";
 import { useNavigate } from "react-router-dom";
 import formImage from "../../assets/formImage.png";
+import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
     email: "",
   });
 
+  const [user, setUser] = useState([]);
+  const [profile, setProfile] = useState([]);
+  const navigate = useNavigate();
+
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => setUser(codeResponse),
+    onError: (error) => console.log("Login Failed:", error),
+    
+  }
+ 
+);
+
+  useEffect(() => {
+    if (user) {
+      axios
+        .get(
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.access_token}`,
+              Accept: "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          setProfile(res.data);
+          console.log(profile);
+          navigate("/Signupform2")
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [user]);
+  const logOut = () => {
+    googleLogout();
+    setProfile(null);
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const navigate = useNavigate();
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -57,7 +97,11 @@ const SignupForm = () => {
             />
             <div className={styles.orText}>OR</div>
             <div className={styles.buttonContainer}>
-              <button type="button" className={styles.authButton}>
+              <button
+                type="button"
+                onClick={() => login()}
+                className={styles.authButton}
+              >
                 Continue with Google
               </button>
               <button type="button" className={styles.authButton}>

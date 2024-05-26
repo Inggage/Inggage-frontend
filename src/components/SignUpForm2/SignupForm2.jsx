@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./SignupForm2.module.css";
 import { useNavigate } from "react-router-dom";
-
+import { googleLogout } from "@react-oauth/google";
 import HeroImage from "../HeroImage/HeroImage";
 
 const SignupForm2 = () => {
@@ -30,6 +30,12 @@ const SignupForm2 = () => {
     event.preventDefault();
     localStorage.setItem("formData", JSON.stringify(formData));
     navigate("/dashboard");
+  };
+
+  const logOut = () => {
+    googleLogout();
+    navigate("/signupform")
+   
   };
 
   return (
@@ -90,6 +96,9 @@ const SignupForm2 = () => {
                 <div className={styles.buttonContainer}>
                   <button type="submit" className={styles.submitButton}>
                     Continue
+                  </button>
+                  <button type="button"  onClick={logOut} className={styles.submitButton}>
+                    Logout
                   </button>
                 </div>
               </form>

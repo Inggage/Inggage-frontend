@@ -1,4 +1,5 @@
 import React from "react";
+
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -11,7 +12,12 @@ import Contact from "./pages/ContactUs/Contact";
 import Pricing from "./pages/Pricing/Pricing";
 import SignupForm2 from "./components/SignUpForm2/SignupForm2";
 
+
 const App = () => {
+ 
+
+    // log out function to log the user out of google and set the profile array to null
+   
   return (
     <div className="App">
      
@@ -29,6 +35,7 @@ const App = () => {
 
         </Routes>
       </Router>
+    
       <Footer />
     </div>
   );
