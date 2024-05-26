@@ -6,11 +6,18 @@ import HeroImage from "../HeroImage/HeroImage";
 
 const SignupForm2 = () => {
   const navigate = useNavigate();
-  const [userToggle, setUserToggle] = useState(true);
+  const [userType, setUserType] = useState("Influencer");
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
+    userType: "Influencer",
+    niche: "",
+    primaryPlatform: "",
+    profileLink: "",
+    collaborations: "",
+    industry: "",
+    websiteLink: "",
+    companyType: "",
+    aovRoas: "",
+    influencerMarketing: "",
   });
 
   const handleChange = (e) => {
@@ -18,12 +25,21 @@ const SignupForm2 = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleClick = () => {
-    if (userToggle) {
-      setFormData((prev) => ({ ...prev, userType: "Influencer" }));
-    } else {
-      setFormData((prev) => ({ ...prev, userType: "Brand" }));
-    }
+  const handleClick = (type) => {
+    setUserType(type);
+    setFormData((prev) => ({
+      ...prev,
+      userType: type,
+      niche: "",
+      primaryPlatform: "",
+      profileLink: "",
+      collaborations: "",
+      industry: "",
+      websiteLink: "",
+      companyType: "",
+      aovRoas: "",
+      influencerMarketing: "",
+    }));
   };
 
   const handleSubmit = (event) => {
@@ -34,8 +50,7 @@ const SignupForm2 = () => {
 
   const logOut = () => {
     googleLogout();
-    navigate("/signupform")
-   
+    navigate("/signupform");
   };
 
   return (
@@ -44,35 +59,106 @@ const SignupForm2 = () => {
         <div className={styles.formImage}>
           <HeroImage />
         </div>
-        {userToggle && (
-          <>
-            <div className={styles.formContainer}>
-              <form onSubmit={handleSubmit} className={styles.form}>
-                <h2 className={styles.heading}>Almost there...</h2>
-                <p className={styles.description}>
-                  We need a few details, it will take less than 2-3 mins to
-                  complete
-                </p>
+        <div className={styles.formContainer}>
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <h2 className={styles.heading}>Almost there...</h2>
+            <p className={styles.description}>
+              We need a few details, it will take less than 2-3 mins to complete
+            </p>
 
-                <label className={styles.label}>You are signing up as</label>
-                <div className={styles.buttonRow}>
-                  <button
-                    type="button"
-                    className={styles.authButton}
-                    onClick={handleClick}
-                  >
-                    Influencer
-                  </button>
-                  <button
-                    type="button"
-                    className={styles.authButton}
-                    onClick={handleClick}
-                  >
-                    Brand
-                  </button>
-                </div>
+            <label className={styles.label}>You are signing up as</label>
+            <div className={styles.buttonRow}>
+              <button
+                type="button"
+                className={`${styles.authButton} ${
+                  userType === "Influencer"
+                    ? styles.activeButton
+                    : styles.inactiveButton
+                }`}
+                onClick={() => handleClick("Influencer")}
+              >
+                Influencer
+              </button>
+              <button
+                type="button"
+                className={`${styles.authButton} ${
+                  userType === "Brand"
+                    ? styles.activeButton
+                    : styles.inactiveButton
+                }`}
+                onClick={() => handleClick("Brand")}
+              >
+                Brand
+              </button>
+            </div>
 
-                <label className={styles.label}>Link to your website</label>
+            {userType === "Influencer" ? (
+              <>
+                <label className={styles.label}>
+                  What niche do you work on?
+                </label>
+                <input
+                  className={styles.inputField}
+                  type="text"
+                  name="niche"
+                  value={formData.niche}
+                  onChange={handleChange}
+                  placeholder="Enter your niche"
+                />
+                <label className={styles.label}>
+                  What is your primary platform of collaboration?
+                </label>
+                <select
+                  className={styles.inputField}
+                  name="primaryPlatform"
+                  value={formData.primaryPlatform}
+                  onChange={handleChange}
+                >
+                  <option value="">Select</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="Twitter">Twitter</option>
+                </select>
+                <label className={styles.label}>Profile Link</label>
+                <input
+                  className={styles.inputField}
+                  type="text"
+                  name="profileLink"
+                  value={formData.profileLink}
+                  onChange={handleChange}
+                  placeholder="Enter your profile link"
+                />
+                <label className={styles.label}>
+                  How many collaborations have you had roughly?
+                </label>
+                <select
+                  className={styles.inputField}
+                  name="collaborations"
+                  value={formData.collaborations}
+                  onChange={handleChange}
+                >
+                  <option value="">Select</option>
+                  <option value="1-10">1-10</option>
+                  <option value="10-50">10-50</option>
+                  <option value="50-100">50-100</option>
+                  <option value="100+">100+</option>
+                </select>
+              </>
+            ) : (
+              <>
+                <label className={styles.label}>
+                  Which industry are you based in
+                </label>
+                <input
+                  className={styles.inputField}
+                  type="text"
+                  name="industry"
+                  value={formData.industry}
+                  onChange={handleChange}
+                  placeholder="Enter your industry"
+                />
+                <label className={styles.label}>Website Link</label>
                 <input
                   className={styles.inputField}
                   type="text"
@@ -81,89 +167,58 @@ const SignupForm2 = () => {
                   onChange={handleChange}
                   placeholder="Enter your website link"
                 />
-
-                <label className={styles.label}>
-                  Reason for Approaching us
-                </label>
-                <textarea
-                  className={styles.textarea}
-                  name="reasonForApproach"
-                  value={formData.reasonForApproach}
+                <label className={styles.label}>Company Type</label>
+                <select
+                  className={styles.inputField}
+                  name="companyType"
+                  value={formData.companyType}
                   onChange={handleChange}
-                  placeholder="Enter your reason"
-                />
-
-                <div className={styles.buttonContainer}>
-                  <button type="submit" className={styles.submitButton}>
-                    Continue
-                  </button>
-                  <button type="button"  onClick={logOut} className={styles.submitButton}>
-                    Logout
-                  </button>
-                </div>
-              </form>
-            </div>
-          </>
-        )}
-
-        {!userToggle && (
-          <>
-            <div className={styles.formContainer}>
-              <form onSubmit={handleSubmit} className={styles.form}>
-                <h2 className={styles.heading}>Almost there...</h2>
-                <p className={styles.description}>
-                  We need a few details, it will take less than 2-3 mins to
-                  complete
-                </p>
-
-                <label className={styles.label}>You are signing up as</label>
-                <div className={styles.buttonRow}>
-                  <button
-                    type="button"
-                    className={styles.authButton}
-                    onClick={handleClick}
-                  >
-                    Influencer
-                  </button>
-                  <button
-                    type="button"
-                    className={styles.authButton}
-                    onClick={handleClick}
-                  >
-                    Brand
-                  </button>
-                </div>
-
-                <label className={styles.label}>Link to your website</label>
+                >
+                  <option value="">Select</option>
+                  <option value="B2B">B2B</option>
+                  <option value="B2C">B2C</option>
+                  <option value="D2C">D2C</option>
+                  <option value="C2C">C2C</option>
+                </select>
+                <label className={styles.label}>What's your AOV, RoAS?</label>
                 <input
                   className={styles.inputField}
                   type="text"
-                  name="websiteLink"
-                  value={formData.websiteLink}
+                  name="aovRoas"
+                  value={formData.aovRoas}
                   onChange={handleChange}
-                  placeholder="Enter your website link"
+                  placeholder="Enter your AOV, RoAS"
                 />
-
                 <label className={styles.label}>
-                  Reason for Approaching us
+                  Have you worked with influencer marketing before?
                 </label>
-                <textarea
-                  className={styles.textarea}
-                  name="reasonForApproach"
-                  value={formData.reasonForApproach}
+                <select
+                  className={styles.inputField}
+                  name="influencerMarketing"
+                  value={formData.influencerMarketing}
                   onChange={handleChange}
-                  placeholder="Enter your reason"
-                />
+                >
+                  <option value="">Select</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </>
+            )}
 
-                <div className={styles.buttonContainer}>
-                  <button type="submit" className={styles.submitButton}>
-                    Continue
-                  </button>
-                </div>
-              </form>
+            <div className={styles.buttonContainer}>
+              <button type="submit" className={styles.submitButton}>
+                Continue
+              </button>
+              <button
+                type="button"
+                onClick={logOut}
+                className={styles.submitButton}
+              >
+                Logout
+              </button>
             </div>
-          </>
-        )}
+          </form>
+        </div>
       </div>
     </>
   );

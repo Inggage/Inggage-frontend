@@ -13,48 +13,48 @@ function Dashboard() {
 
   const formData = JSON.parse(localStorage.getItem("formData"));
   const profile = JSON.parse(localStorage.getItem("profile"));
+
   return (
     <>
       <div className={styles.dashContainer}>
-        <div >
-          <h1 style={{textAlign:"center"}}>Dashboard</h1>
-          <h2 style={{textAlign:"center"}}>User Data</h2>
-          </div>
-          <div className="dash-data" style={{display:"flex",justifyContent:"center"}}>
-           
-            {formData && (
-              <div>
-                <p>User Type: {formData.userType}</p>
-                {formData.userType === "brand" ? (
-                  <p>Link to Website: {formData.socialMediaPresence}</p>
-                ) : (
-                  <p>
-                    Link to Social Media Account: {formData.socialMediaPresence}
-                  </p>
-                )}
-                {formData.userType === "influencer" && (
-                  <p>Follower/Subscriber Count: {formData.followerCount}</p>
-                )}
-                <p>
-                  Interest in Collaboration: {formData.collaborationInterest}
-                </p>
-              </div>
-            )}
+        <div>
+          <h1 style={{ textAlign: "center" }}>Dashboard</h1>
+          <h2 style={{ textAlign: "center" }}>User Data</h2>
+        </div>
+        <div
+          className="dash-data"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          {formData && (
+            <div>
+              <p>User Type: {formData.userType}</p>
+              {formData.userType === "Brand" ? (
+                <p>Link to Website: {formData.websiteLink}</p>
+              ) : (
+                <p>Link to Social Media Account: {formData.profileLink}</p>
+              )}
+              {formData.userType === "influencer" && (
+                <p>Follower/Subscriber Count: {formData.followerCount}</p>
+              )}
+              <p>
+                Interest in Collaboration:{" "}
+                {formData.collaborationInterest || "Yes"}{" "}
+              </p>
+            </div>
+          )}
 
-            {profile && (
-              <div>
-                <p>{profile.user._id}</p>
-                <p>{profile.user.username}</p>
-                <p>{profile.user.firstname}</p>
-                <p>{profile.user.lastname}</p>
-
-                </div>
-            )}
-          </div>
-          <div className={styles.dashButton}>
+          {profile && (
+            <div>
+              <p>{profile.user._id}</p>
+              <p>{profile.user.username}</p>
+              <p>{profile.user.firstname}</p>
+              <p>{profile.user.lastname}</p>
+            </div>
+          )}
+        </div>
+        <div className={styles.dashButton}>
           <button onClick={handleLogout}>Logout</button>
-          </div>
-       
+        </div>
       </div>
     </>
   );

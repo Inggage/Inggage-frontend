@@ -62,11 +62,17 @@
   border-radius: 12px;
   box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
   cursor: pointer;
+  background-color: #ffffff;
+  color: rgb(10, 10, 10);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.authButton.activeButton {
   background-color: #9819ec;
   color: white;
 }
 
-.authButton:last-child {
+.authButton.inactiveButton {
   background-color: #ffffff;
   color: rgb(10, 10, 10);
 }
@@ -122,6 +128,7 @@
 .formImage {
   width: 50%;
 }
+
 .formImage img {
   display: block;
   margin-left: auto;
@@ -153,6 +160,7 @@
 }
 
 @media (max-width: 1024px) {
+
   .title,
   .asterisk,
   .inputText,
@@ -174,11 +182,12 @@
 
   .submitButton,
   .connectButton {
-    width: 100%; /* Ensures buttons use all the horizontal space */
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
+
   .title,
   .asterisk,
   .inputText,
@@ -194,9 +203,11 @@
     margin-bottom: 30px;
     background-color: #34d1ed7e;
   }
+
   .formImage {
     width: 100%;
   }
+
   .formImage img {
     width: 100%;
     display: block;
@@ -205,6 +216,7 @@
     filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
     justify-content: center;
   }
+
   .buttonContainer {
     gap: 12px;
   }
