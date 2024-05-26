@@ -1,20 +1,21 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable no-useless-escape */
 import React, { useState, useEffect } from "react";
 import styles from "./SignupForm.module.css";
 import { useNavigate } from "react-router-dom";
 import formImage from "../../assets/formImage.png";
-import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import {  useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { auth, facebook } from "../../firebase-config";
-import { signInWithPopup, signOut } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
     email: "",
   });
 
-  const [isLogin, setIsLogin] = useState(false); // Manages whether the user is logged in or not
+  //const [isLogin, setIsLogin] = useState(false); // Manages whether the user is logged in or not
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
 
@@ -30,14 +31,15 @@ const SignupForm = () => {
       //authenticate the user by calling a popup
       const result = await signInWithPopup(auth, provider);
       //fetch the user data
+      console.log(result)
       setUser(result.user);
       console.log(user) // Stores user data in the 'user' state
-      setIsLogin(true);
+      //setIsLogin(true);
       navigate("/Signupform2") // Sets the 'isLogin' state to true, indicating the user is logged in
     } catch (e) {
       //handle the error when login fails
       console.log(`login error ${e}`);
-      setIsLogin(false); // Sets 'isLogin' to false on login failure
+     // setIsLogin(false); // Sets 'isLogin' to false on login failure
     }
   }
 
@@ -62,10 +64,10 @@ const SignupForm = () => {
     }
   }, [user]);
 
-  const logOut = () => {
-    googleLogout();
-    setProfile(null);
-  };
+  // const logOut = () => {
+  //   googleLogout();
+  //   setProfile(null);
+  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
