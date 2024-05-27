@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import styles from "./SignupForm2.module.css";
 import { useNavigate } from "react-router-dom";
 import { googleLogout } from "@react-oauth/google";
@@ -19,6 +19,13 @@ const SignupForm2 = () => {
     aovRoas: "",
     influencerMarketing: "",
   });
+
+  useEffect(() => {
+    const storedFormData = JSON.parse(localStorage.getItem("formData"));
+    if (storedFormData) {
+      setFormData(storedFormData);
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,12 +51,14 @@ const SignupForm2 = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(formData);
     localStorage.setItem("formData", JSON.stringify(formData));
     navigate("/dashboard");
   };
 
   const logOut = () => {
     googleLogout();
+    localStorage.removeItem("formData");
     navigate("/signupform");
   };
 

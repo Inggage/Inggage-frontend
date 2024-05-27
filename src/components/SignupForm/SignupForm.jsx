@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable no-useless-escape */
@@ -5,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./SignupForm.module.css";
 import { useNavigate } from "react-router-dom";
 import formImage from "../../assets/formImage.png";
-import {  useGoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { auth, facebook } from "../../firebase-config";
 import { signInWithPopup } from "firebase/auth";
@@ -13,38 +14,25 @@ import { signInWithPopup } from "firebase/auth";
 const SignupForm = () => {
   const [formData, setFormData] = useState({
     email: "",
+    displayName:"",
   });
 
   //const [isLogin, setIsLogin] = useState(false); // Manages whether the user is logged in or not
+  // const [userFace, setUserFace] = useState([]);
   const [user, setUser] = useState([]);
-  const [profile, setProfile] = useState([]);
-
   const navigate = useNavigate();
 
+  // GOOGLE LOGIN HANDLER
   const login = useGoogleLogin({
-    onSuccess: (codeResponse) => setUser(codeResponse),
+    onSuccess: (codeResponse) => {
+      console.log("Google login successful:", codeResponse);
+      setUser(codeResponse);
+    },
     onError: (error) => console.log("Login Failed:", error),
   });
 
-  const loginFace = async (provider) => {
-    try {
-      //authenticate the user by calling a popup
-      const result = await signInWithPopup(auth, provider);
-      //fetch the user data
-      console.log(result)
-      setUser(result.user);
-      console.log(user) // Stores user data in the 'user' state
-      //setIsLogin(true);
-      navigate("/Signupform2") // Sets the 'isLogin' state to true, indicating the user is logged in
-    } catch (e) {
-      //handle the error when login fails
-      console.log(`login error ${e}`);
-     // setIsLogin(false); // Sets 'isLogin' to false on login failure
-    }
-  }
-
   useEffect(() => {
-    if (user && user.access_token ) {
+    if (user && user.access_token) {
       axios
         .get(
           `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
@@ -56,13 +44,40 @@ const SignupForm = () => {
           }
         )
         .then((res) => {
-          setProfile(res.data);
-          console.log(profile);
+          console.log("Google user profile data:", res.data);
+          const updatedFormData = {
+            email: res.data.email,
+            displayName: res.data.name,
+          };
+
+          setFormData(updatedFormData);
+          localStorage.setItem("formData", JSON.stringify(updatedFormData));
           navigate("/Signupform2");
         })
         .catch((err) => console.log(err));
     }
   }, [user]);
+
+  // FACEBOOK LOGIN HANDLER
+  const loginFace = async (provider) => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const emailface = result.user.email;
+      const displayName = result.user.displayName;
+      console.log([emailface, displayName]);
+
+      const updatedFormData = {
+        email: emailface,
+        displayName: displayName,
+      };
+      setFormData(updatedFormData);
+      localStorage.setItem("formData", JSON.stringify(updatedFormData));
+      console.log(updatedFormData);
+      navigate("/Signupform2");
+    } catch (e) {
+      console.log(`login error ${e}`);
+    }
+  };
 
   // const logOut = () => {
   //   googleLogout();
@@ -122,7 +137,11 @@ const SignupForm = () => {
               >
                 Continue with Google
               </button>
-              <button type="button" onClick={() => loginFace(facebook)} className={styles.authButton}>
+              <button
+                type="button"
+                onClick={() => loginFace(facebook)}
+                className={styles.authButton}
+              >
                 Continue with Facebook
               </button>
             </div>
