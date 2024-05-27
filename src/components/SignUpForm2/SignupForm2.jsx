@@ -3,6 +3,8 @@ import styles from "./SignupForm2.module.css";
 import { useNavigate } from "react-router-dom";
 import { googleLogout } from "@react-oauth/google";
 import HeroImage from "../HeroImage/HeroImage";
+import { database } from "../../firebase-config";
+import { ref, set, push } from 'firebase/database';
 
 const SignupForm2 = () => {
   const navigate = useNavigate();
@@ -29,7 +31,7 @@ const SignupForm2 = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value !== undefined ? value : "" }));
   };
 
   const handleClick = (type) => {
@@ -49,11 +51,21 @@ const SignupForm2 = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
     localStorage.setItem("formData", JSON.stringify(formData));
-    navigate("/dashboard");
+    const formDataRef = ref(database, userType === "Influencer" ? 'influencers/' : 'brands/');
+    push(formDataRef, {
+      ...formData
+    }).then(() => {
+      navigate("/dashboard");
+      alert("Data submitted successfully!");
+      console.log("+++data sent", formData);
+    }).catch((error) => {
+      console.error("Error:", error);
+      alert("Something went wrong. Try Again!!");
+    });
   };
 
   const logOut = () => {

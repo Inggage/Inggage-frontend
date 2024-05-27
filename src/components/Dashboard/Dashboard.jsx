@@ -7,12 +7,11 @@ function Dashboard() {
 
   const handleLogout = () => {
     localStorage.removeItem("formData");
-    localStorage.removeItem("profile");
     navigate("/");
   };
 
   const formData = JSON.parse(localStorage.getItem("formData"));
-  const profile = JSON.parse(localStorage.getItem("profile"));
+ 
 
   return (
     <>
@@ -43,14 +42,20 @@ function Dashboard() {
             </div>
           )}
 
-          {profile && (
-            <div>
-              <p>{profile.user._id}</p>
-              <p>{profile.user.username}</p>
-              <p>{profile.user.firstname}</p>
-              <p>{profile.user.lastname}</p>
+          <div className="card" style={{width: "18rem"}}>
+            <img className="card-img-top" src="" alt="Cardcap" />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" className="btn btn-primary">
+                Go somewhere
+              </a>
             </div>
-          )}
+          </div>
+
         </div>
         <div className={styles.dashButton}>
           <button onClick={handleLogout}>Logout</button>

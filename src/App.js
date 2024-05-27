@@ -12,15 +12,11 @@ import Contact from "./pages/ContactUs/Contact";
 import Pricing from "./pages/Pricing/Pricing";
 import SignupForm2 from "./components/SignUpForm2/SignupForm2";
 
-
 const App = () => {
- 
+  // log out function to log the user out of google and set the profile array to null
 
-    // log out function to log the user out of google and set the profile array to null
-   
   return (
     <div className="App">
-     
       <Router>
         <Header />
         <Routes>
@@ -32,10 +28,9 @@ const App = () => {
           <Route path="/pricing" element={<Pricing />}></Route>
           <Route path="/Signupform" element={<SignupForm />}></Route>
           <Route path="/Signupform2" element={<SignupForm2 />}></Route>
-
         </Routes>
       </Router>
-    
+
       <Footer />
     </div>
   );

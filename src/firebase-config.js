@@ -3,7 +3,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, FacebookAuthProvider } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
+import { getDatabase } from "firebase/database";// TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
@@ -12,6 +12,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyCdkLfs9eq0C4BmzQldRrAlKKkxryMKbQk",
   authDomain: "inggage-3282c.firebaseapp.com",
   projectId: "inggage-3282c",
+  databaseURL: "https://inggage-3282c-default-rtdb.asia-southeast1.firebasedatabase.app",
   storageBucket: "inggage-3282c.appspot.com",
   messagingSenderId: "319566936145",
   appId: "1:319566936145:web:806ffc92914feab7ece070",
@@ -24,3 +25,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const auth = getAuth();
 export const facebook = new FacebookAuthProvider();
+const database = getDatabase(app);
+
+export { database };
