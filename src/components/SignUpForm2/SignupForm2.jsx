@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { googleLogout } from "@react-oauth/google";
 import HeroImage from "../HeroImage/HeroImage";
 import { database } from "../../firebase-config";
-import { ref, set, push } from 'firebase/database';
+import { ref, push } from 'firebase/database';
 
 const SignupForm2 = () => {
   const navigate = useNavigate();

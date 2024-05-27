@@ -1,9 +1,13 @@
-import React from 'react'
-
+import React from "react";
+import styles from'./Contact.module.css'
 function Contact() {
   return (
-    <div><h1 style={{fontSize:"100px", textAlign:"center"}}>CONTACT US PAGE</h1></div>
-  )
+    <div className={styles.ContactContainer}>
+      <h1 style={{ fontSize: "100px", textAlign: "center" }}>
+        CONTACT US PAGE
+      </h1>
+    </div>
+  );
 }
 
-export default Contact
+export default Contact;
