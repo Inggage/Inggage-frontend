@@ -25,11 +25,11 @@ const SignupForm = () => {
   // GOOGLE LOGIN HANDLER
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
-      console.log("Google login successful:", codeResponse);
+      //console.log("Google login successful:", codeResponse);
       setUser(codeResponse);
     },
     onError: (error) => console.log("Login Failed:", error),
-    
+    ux_mode: 'popup',
   });
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const SignupForm = () => {
           }
         )
         .then((res) => {
-          console.log("Google user profile data:", res.data);
+         // console.log("Google user profile data:", res.data);
           const updatedFormData = {
             email: res.data.email,
             displayName: res.data.name,
