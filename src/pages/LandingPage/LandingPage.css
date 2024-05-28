@@ -1,13 +1,13 @@
+/* Landing page css - hero CSs*/
 .landing-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 50px;
- 
 }
-.landing-container p{
-    margin-bottom: 0;
+.landing-container p {
+  margin-bottom: 0;
 }
 
 .upperImage img {
@@ -34,6 +34,265 @@
   line-height: 24px;
   cursor: pointer;
 }
+
+/* Statistics Section */
+.statistics-section {
+  padding: 50px 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.statistics-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.statistics-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.stat-card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  color: #007BFF;
+}
+
+.stat-card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Brand section*/
+
+.brands-section {
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 30px;
+  white-space: nowrap;
+}
+
+.brands-logos {
+  margin-top: 30px;
+  display: inline-block;
+  animation: scroll 15s linear infinite;
+}
+
+.brands-logos img {
+  display: inline-block;
+  margin-right: 20px;
+  width: 100px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Features Section */
+.features-section {
+  text-align: center;
+  padding: 50px 0;
+  background-color: #f0f0f0;
+}
+
+.features-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.features-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  text-align: center;
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
+
+.testimonials-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.testimonials-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.testimonial-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.testimonial-card h4 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-image img {
+  max-width: 70%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.contact-form {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 30px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.contact-form h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+}
+
+/* media 1024*/
+
 @media (max-width: 1024px) {
   .landing-container {
     padding-top: 12px;
@@ -52,7 +311,6 @@
     gap: 16px;
   }
 
-
   .landing-container > * {
     flex-basis: 100%;
   }
@@ -66,8 +324,6 @@
     height: auto;
     width: 500px;
   }
-
- 
 }
 
 @media (max-width: 480px) {
