@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Dashboard.module.css";
+import dashImage from '../../assets/dashImage.gif';
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ function Dashboard() {
     <>
       <div className={styles.dashContainer}>
         <div className="Greet">
-          <h1>CONGRULATIONS</h1>
+         <img src={dashImage} alt="DashImage"></img>
         </div>
         <div className={styles.dashButton}>
           <button onClick={handleLogout}>GO BACK</button>

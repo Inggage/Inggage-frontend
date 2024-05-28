@@ -9,6 +9,10 @@
   font-family: "Gilroy", sans-serif;
 }
 
+.dashContainer img{
+  width: 480px;
+}
+
 .dashButton {
   text-align: center;
 }
