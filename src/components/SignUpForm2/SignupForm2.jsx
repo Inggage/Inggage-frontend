@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./SignupForm2.module.css";
 import { useNavigate } from "react-router-dom";
-//import { googleLogout } from "@react-oauth/google";
 import HeroImage from "../HeroImage/HeroImage";
 import { database } from "../../firebase-config";
 import { ref, push } from 'firebase/database';
@@ -80,29 +79,22 @@ const SignupForm2 = () => {
     if (step < 2) {
       handleNextStep();
     } else if (validateCurrentStep()) {
-     // console.log(formData);
+      //console.log("Submitting data:", formData);
       localStorage.setItem("formData", JSON.stringify(formData));
       const formDataRef = ref(database, userType === "Influencer" ? 'influencers/' : 'brands/');
-      push(formDataRef, {
-        ...formData
-      }).then(() => {
+      try {
+        await push(formDataRef, formData);
         alert("Data submitted successfully!");
+        //console.log("+++data sent", formData);
         navigate("/dashboard");
-       // console.log("+++data sent", formData);
-      }).catch((error) => {
+      } catch (error) {
         console.error("Error:", error);
         alert("Something went wrong. Try Again!!");
-      });
+      }
     } else {
-      
+      alert("Please fill out all required fields.");
     }
   };
-
-  // const logOut = () => {
-  //   googleLogout();
-  //   localStorage.removeItem("formData");
-  //   navigate("/signupform");
-  // };
 
   return (
     <>
@@ -182,13 +174,12 @@ const SignupForm2 = () => {
                   </>
                 )}
               </>
-            ) 
-          }
-          {userType === "Brand" &&  (
+            )}
+
+            {userType === "Brand" && (
               <>
                 {step === 1 ? (
-                  <>
-                  <div className={styles.brandContainer}>
+                  <> <div className={styles.brandContainer}>
                     <label className={styles.label}>Which industry are you based in</label>
                     <input
                       className={styles.inputField}
@@ -255,13 +246,6 @@ const SignupForm2 = () => {
               ) : (
                 <button type="submit" className={styles.submitButton}>Submit</button>
               )}
-              {/*<button
-                type="button"
-                onClick={logOut}
-                className={styles.submitButton}
-              >
-                Logout
-            </button>*/}
             </div>
           </form>
         </div>
