@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
-        <div><img src={logo} alt="Logo" className={styles.logo} /></div>
+        <div><a href="/"><img src={logo} alt="Logo" className={styles.logo} /></a></div>
         <div className={styles.menuIcon} onClick={toggleNav}>
           ☰
         </div>
@@ -43,7 +43,7 @@ const Header = () => {
             Contact us
           </a>
           <div>
-           <button onClick={handleClick} className={styles.signFormButton}>Signup Form</button>
+           <button onClick={handleClick} className={styles.signFormButton}>Signup</button>
         
         </div>
         </nav>

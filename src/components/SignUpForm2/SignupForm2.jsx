@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import HeroImage from "../HeroImage/HeroImage";
 import { database } from "../../firebase-config";
 import { ref, push } from 'firebase/database';
+import { FaInstagram } from "react-icons/fa";
 
 const SignupForm2 = () => {
   const navigate = useNavigate();
@@ -92,7 +93,7 @@ const SignupForm2 = () => {
         alert("Something went wrong. Try Again!!");
       }
     } else {
-      alert("Please fill out all required fields.");
+     
     }
   };
 
@@ -106,7 +107,7 @@ const SignupForm2 = () => {
           <form onSubmit={handleSubmit} className={styles.form}>
             <h2 className={styles.heading}>Almost there...</h2>
             <p className={styles.description}>
-              Step {step}/2👆🏻
+              👈🏻Step {step}/2<FaInstagram />
             </p>
 
             <label className={styles.label}>You are signing up as</label>

@@ -108,7 +108,7 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/* Section 5 - Testimonials Section */}
+      {/* Section 5 - Testimonials Section 
       <div className="testimonials-section">
         <h2>What Our Users Say</h2>
         <div className="testimonials-cards">
@@ -145,7 +145,7 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/* Section 6 - Contact Section */}
+      {/* Section 6 - Contact Section 
       <div className="contact-section">
         <div className="contact-container">
           <div className="contact-image">
@@ -178,7 +178,7 @@ const LandingPage = () => {
             </form>
           </div>
         </div>
-      </div>
+      </div>*/}
     </>
   );
 };

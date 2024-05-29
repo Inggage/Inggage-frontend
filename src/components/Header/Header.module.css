@@ -1,6 +1,6 @@
 .headerContainer {
   width: 100%;
-  max-width: 1440px;
+  
   display: flex;
   justify-content: center;
   background-color: #fafafa;
@@ -15,7 +15,7 @@
 
 .headerContent {
   width: 100%;
-  max-width: 1280px;
+  
   padding: 0 32px;
   display: flex;
   flex-direction: row;
@@ -25,7 +25,7 @@
 }
 
 .logo {
-  width: 108.19px;
+  width: 50px;
   height: 31.78px;
   filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }

@@ -30,7 +30,6 @@ const App = () => {
           <Route path="/Signupform2" element={<SignupForm2 />}></Route>
         </Routes>
       </Router>
-
       <Footer />
     </div>
   );

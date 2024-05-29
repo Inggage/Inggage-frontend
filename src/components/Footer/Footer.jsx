@@ -14,9 +14,7 @@ const Footer = () => {
           alt="Footer Logo"
         />
         <div className={styles.socialIcons}>
-          {/* Social icons will go here */}
-          <p>hello</p>
-          <p>world</p>
+        
         </div>
         <div className={styles.divider}></div>
         <h2 className={styles.title}>Seasoned. Nimble. Remote.</h2>
