@@ -1,3 +1,7 @@
+/* eslint-disable no-undef */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/img-redundant-alt */
+/* eslint-disable no-useless-escape */
 import React, { useState, useEffect } from "react";
 import styles from "./SignupForm.module.css";
 import { useNavigate } from "react-router-dom";
@@ -6,25 +10,27 @@ import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { auth, facebook } from "../../firebase-config";
 import { signInWithPopup } from "firebase/auth";
-import emailjs from "emailjs-com";
+//import { FaGoogle } from "react-icons/fa";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
     email: "",
-    displayName: "",
-    otp: "",
+    displayName:"",
   });
+
+  //const [isLogin, setIsLogin] = useState(false); // Manages whether the user is logged in or not
+  // const [userFace, setUserFace] = useState([]);
   const [user, setUser] = useState([]);
-  const [otpSent, setOtpSent] = useState(false);
-  const [generatedOtp, setGeneratedOtp] = useState("");
   const navigate = useNavigate();
 
+  // GOOGLE LOGIN HANDLER
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
+      //console.log("Google login successful:", codeResponse);
       setUser(codeResponse);
     },
     onError: (error) => console.log("Login Failed:", error),
-    ux_mode: "popup",
+    ux_mode: 'popup',
   });
 
   useEffect(() => {
@@ -40,6 +46,7 @@ const SignupForm = () => {
           }
         )
         .then((res) => {
+         // console.log("Google user profile data:", res.data);
           const updatedFormData = {
             email: res.data.email,
             displayName: res.data.name,
@@ -51,13 +58,15 @@ const SignupForm = () => {
         })
         .catch((err) => console.log(err));
     }
-  }, [user,navigate]);
+  }, [user]);
 
+  // FACEBOOK LOGIN HANDLER
   const loginFace = async (provider) => {
     try {
       const result = await signInWithPopup(auth, provider);
       const emailface = result.user.email;
       const displayName = result.user.displayName;
+      console.log([emailface, displayName]);
 
       const updatedFormData = {
         email: emailface,
@@ -65,70 +74,29 @@ const SignupForm = () => {
       };
       setFormData(updatedFormData);
       localStorage.setItem("formData", JSON.stringify(updatedFormData));
+      console.log(updatedFormData);
       navigate("/Signupform2");
     } catch (e) {
       console.log(`login error ${e}`);
     }
   };
 
+  // const logOut = () => {
+  //   googleLogout();
+  //   setProfile(null);
+  // };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleGetOtp = () => {
-    if (!formData.email) {
-      alert("Please enter your email");
-      return;
-    }
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formData.email)) {
-      const otp = Math.floor(100000 + Math.random() * 900000).toString();
-      setGeneratedOtp(otp);
-
-      const templateParams = {
-        email: formData.email,
-        otp: otp,
-      };
-
-      emailjs
-        .send(
-          "service_4oa85cc", // Replace with your service ID
-          "template_8ily7bb", // Replace with your template ID
-          templateParams,
-          "Rv2--lg-zY8PMp2HG" // Replace with your user ID
-        )
-        .then(
-          (response) => {
-            console.log(
-              "OTP sent successfully",
-              response.status,
-              response.text
-            );
-            setOtpSent(true);
-          },
-          (err) => {
-            console.log("Failed to send OTP", err);
-          }
-        );
-    } else {
-      alert("Invalid Email. Please try again.");
-    }
-  };
-
-  const handleVerifyOtp = () => {
-    if (formData.otp === generatedOtp) {
-      alert("OTP verified successfully!");
-      localStorage.setItem("formData", JSON.stringify(formData));
-      navigate("/Signupform2");
-    } else {
-      alert("Invalid OTP. Please try again.");
-    }
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
+    // eslint-disable-next-line no-useless-escape
+
     if (!formData.email) {
-      alert("Please enter your email");
+      alert("type email");
     } else {
       if (
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formData.email)
@@ -136,7 +104,7 @@ const SignupForm = () => {
         localStorage.setItem("formData", JSON.stringify(formData));
         navigate("/Signupform2");
       } else {
-        alert("Invalid Email. Please try again.");
+        alert("Wrong Email-Try again!!");
       }
     }
   };
@@ -154,43 +122,14 @@ const SignupForm = () => {
               We will require your email ID to further proceed and get in touch
               with our team
             </p>
-            {!otpSent ? (
-              <>
-                <input
-                  className={styles.inputField}
-                  type="text"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your Email ID"
-                />
-                <button
-                  type="button"
-                  onClick={handleGetOtp}
-                  className={styles.continueButton}
-                >
-                  Get OTP
-                </button>
-              </>
-            ) : (
-              <>
-                <input
-                  className={styles.inputField}
-                  type="text"
-                  name="otp"
-                  value={formData.otp}
-                  onChange={handleChange}
-                  placeholder="Enter your OTP"
-                />
-                <button
-                  type="button"
-                  onClick={handleVerifyOtp}
-                  className={styles.continueButton}
-                >
-                  Verify OTP
-                </button>
-              </>
-            )}
+            <input
+              className={styles.inputField}
+              type="text"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your Email ID"
+            />
             <div className={styles.orText}>OR</div>
             <div className={styles.buttonContainer}>
               <button
@@ -198,7 +137,7 @@ const SignupForm = () => {
                 onClick={() => login()}
                 className={styles.authButton}
               >
-                Continue with Google
+                 Continue with Google
               </button>
               <button
                 type="button"
