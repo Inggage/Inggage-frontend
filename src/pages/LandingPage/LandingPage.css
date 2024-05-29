@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   margin: 0 50px;
+  height: 80vh;
 }
 .landing-container p {
   margin-bottom: 0;
@@ -13,11 +14,22 @@
 .upperImage img {
   width: 300px;
   height: auto;
+  margin-top: 100px;
 }
 
 .lowerImage img {
   height: auto;
   width: 800px;
+  margin-top: 20px;
+  border: 1px solid pink;
+  border-radius: 12px;
+  z-index: 2;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.949);
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+.lowerImage img:hover {
+  height: auto;
+  width: 850px;
 }
 
 .StartBtn {
@@ -33,63 +45,79 @@
   font-weight: 700;
   line-height: 24px;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.StartBtn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.949);
 }
 
 /* Statistics Section */
 .statistics-section {
   padding: 50px 0;
-  background-color: #fff;
+
+  font-family: "Gilroy", sans-serif;
+  background-color: #000f1f;
   text-align: center;
 }
 
 .statistics-section h2 {
+  margin-top: 80px;
   font-size: 2.5rem;
   margin-bottom: 30px;
-  color: #333;
+  color: #ffffff;
+  font-weight: bolder;
 }
 
 .statistics-cards {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 60px;
 }
 
 .stat-card {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
+  background: #f9f9f931;
+  border: 1px solid #0d0d0d0f;
   border-radius: 10px;
   padding: 20px;
   width: 150px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.46);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .stat-card h3 {
   font-size: 2rem;
-  color: #007BFF;
+  color: #f7f7f7;
 }
 
 .stat-card p {
   font-size: 1rem;
-  color: #666;
+  color: #f3f3f3;
 }
 
 .stat-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.949);
 }
 
 /* Brand section*/
 
 .brands-section {
+  background-color: #000f1f;
+  color: #ddd;
   overflow: hidden;
   text-align: center;
-  margin-bottom: 30px;
+  font-family: "Gilroy", sans-serif;
   white-space: nowrap;
+}
+.brands-section h2 {
+  font-weight: bolder;
 }
 
 .brands-logos {
-  margin-top: 30px;
+  margin: 30px 0;
   display: inline-block;
   animation: scroll 15s linear infinite;
 }
@@ -112,13 +140,16 @@
 /* Features Section */
 .features-section {
   text-align: center;
+  font-family: "Gilroy", sans-serif;
   padding: 50px 0;
-  background-color: #f0f0f0;
+  color: #ddd;
+  background-color: #000f1f;
 }
 
 .features-section h2 {
   font-size: 2.5rem;
   margin-bottom: 40px;
+  font-weight: bolder;
 }
 
 .features-cards {
@@ -128,8 +159,8 @@
 }
 
 .feature-card {
-  background: #fff;
-  border: 1px solid #ddd;
+  background: #ffffff23;
+  border: 1px solid #dddddd00;
   padding: 20px;
   margin: 10px;
   border-radius: 10px;
@@ -141,7 +172,7 @@
 
 .feature-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.47);
 }
 
 .feature-card h3 {
@@ -151,7 +182,6 @@
 
 .feature-card p {
   font-size: 1rem;
-  color: #555;
 }
 
 /* Testimonials Section */
@@ -331,13 +361,41 @@
     padding-top: 12px;
     gap: 10px;
   }
+  .landing-container p{
+   text-align: center;
+  }
   .upperImage img {
     width: 200px;
     height: auto;
+    margin-top: 20px;
   }
 
   .lowerImage img {
     height: auto;
-    width: 300px;
+    width: 350px;
+    margin-top: 20px;
+    border: none;
+    z-index: 2;
+    box-shadow: none;
+  }
+  .lowerImage img:hover {
+    width: 350px;
+  }
+  .StartBtn {
+    background-color: #ff006b;
+    color: white;
+    border: none;
+    padding: 2px 10px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: "Gilroy", sans-serif;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: ease-out;
+    margin-bottom: 12px;
+  }
+  .statistics-section h2 {
+    margin-top: 10px;
   }
 }

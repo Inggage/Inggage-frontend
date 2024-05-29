@@ -10,6 +10,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { auth, facebook } from "../../firebase-config";
 import { signInWithPopup } from "firebase/auth";
+//import { FaGoogle } from "react-icons/fa";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -136,7 +137,7 @@ const SignupForm = () => {
                 onClick={() => login()}
                 className={styles.authButton}
               >
-                Continue with Google
+                 Continue with Google
               </button>
               <button
                 type="button"
