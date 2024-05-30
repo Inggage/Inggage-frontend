@@ -6,7 +6,7 @@
   align-items: center;
   margin: 0 50px;
   font-family: "Gilroy";
-  height: 80vh;
+ 
 }
 .landing-container p {
   margin-bottom: 0;
@@ -15,18 +15,15 @@
 .upperImage img {
   width: 300px;
   height: auto;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .lowerImage img {
   height: auto;
   width: 800px;
   margin-top: 20px;
-  border: 1px solid pink;
-  border-radius: 12px;
-  z-index: 2;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.949);
-  transition: transform 0.3s ease, width 0.3s ease;
+  
+  
 }
 
 .StartBtn {
