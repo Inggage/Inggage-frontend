@@ -1,8 +1,11 @@
 import React from "react";
-import CountUp from 'react-countup';
+import CountUp from "react-countup";
 import { useNavigate } from "react-router-dom";
 import bg1 from "../../assets/bg1.png";
 import bg2 from "../../assets/bg2.png";
+import analytics from '../../assets/analytics.png'
+import search from '../../assets/search.png'
+import campaign from '../../assets/campaign.png'
 import "./LandingPage.css";
 
 const LandingPage = () => {
@@ -30,7 +33,6 @@ const LandingPage = () => {
           <img src={bg2} alt="bg2" />
         </div>
       </div>
-
 
       {/* Stats section*/}
       <div className="statistics-section">
@@ -78,11 +80,17 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/* Section 4 - Features Section */}
+      {/*<!-- Section 4 - Features Section -->*/}
       <div className="features-section">
         <h2>Our Features</h2>
         <div className="features-cards">
           <div className="feature-card">
+            <div className="image-container">
+              <img
+                src={analytics}
+                alt="Analytics Dashboard"
+              />
+            </div>
             <h3>Comprehensive Analytics Dashboard</h3>
             <p>
               Track the performance of your campaigns with detailed analytics
@@ -91,6 +99,12 @@ const LandingPage = () => {
             </p>
           </div>
           <div className="feature-card">
+            <div className="image-container">
+              <img
+                src={search}
+                alt="Influencer Discovery"
+              />
+            </div>
             <h3>Influencer Discovery</h3>
             <p>
               Discover the right influencers for your brand with our powerful
@@ -99,6 +113,12 @@ const LandingPage = () => {
             </p>
           </div>
           <div className="feature-card">
+            <div className="image-container">
+              <img
+                src={campaign}
+                alt="Campaign Management"
+              />
+            </div>
             <h3>Campaign Management</h3>
             <p>
               Create, manage, and monitor campaigns seamlessly. Collaborate with
@@ -107,7 +127,6 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-
       {/* Section 5 - Testimonials Section 
       <div className="testimonials-section">
         <h2>What Our Users Say</h2>

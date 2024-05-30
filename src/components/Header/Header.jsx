@@ -30,7 +30,7 @@ const Header = () => {
           <a href="/" className={styles.navLink}>
             Home
           </a>
-          <a href="/services" className={styles.navLink}>
+          {/* <a href="/services" className={styles.navLink}>
             Services
           </a>
           <a href="/pricing" className={styles.navLink}>
@@ -41,7 +41,8 @@ const Header = () => {
           </a>
           <a href="/contactus" className={styles.navLink}>
             Contact us
-          </a>
+          </a>*/}
+          
           <div>
            <button onClick={handleClick} className={styles.signFormButton}>Signup</button>
         

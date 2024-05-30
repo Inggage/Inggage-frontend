@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   margin: 0 50px;
+  font-family: "Gilroy";
   height: 80vh;
 }
 .landing-container p {
@@ -27,10 +28,6 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.949);
   transition: transform 0.3s ease, width 0.3s ease;
 }
-.lowerImage img:hover {
-  height: auto;
-  width: 850px;
-}
 
 .StartBtn {
   padding: 10px 60px;
@@ -41,7 +38,7 @@
   border-radius: 8px;
   font-size: 16px;
   margin-top: 10px;
-  font-family: "Gilroy", sans-serif;
+  font-family: "Gilroy";
   font-weight: 700;
   line-height: 24px;
   cursor: pointer;
@@ -140,24 +137,23 @@
 /* Features Section */
 .features-section {
   text-align: center;
-  font-family: "Gilroy", sans-serif;
+  font-family: "Gilroy";
   padding: 50px 0;
   color: #ddd;
   background-color: #000f1f;
 }
-
 .features-section h2 {
   font-size: 2.5rem;
   margin-bottom: 40px;
   font-weight: bolder;
+  
 }
-
 .features-cards {
   display: flex;
   flex-wrap: wrap;
+  justify-items: center;
   justify-content: space-around;
 }
-
 .feature-card {
   background: #ffffff23;
   border: 1px solid #dddddd00;
@@ -168,18 +164,32 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
   transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
 }
-
 .feature-card:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.47);
 }
-
+.image-container {
+  width: 100%;
+  padding-top: 56.25%; /* Maintain aspect ratio (16:9) */
+  position: relative;
+  margin-bottom: 20px;
+}
+.image-container img {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 100%;
+  
+}
 .feature-card h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
-
 .feature-card p {
   font-size: 1rem;
 }
@@ -379,9 +389,7 @@
     z-index: 2;
     box-shadow: none;
   }
-  .lowerImage img:hover {
-    width: 350px;
-  }
+
   .StartBtn {
     background-color: #ff006b;
     color: white;
@@ -393,14 +401,12 @@
     font-weight: 700;
     cursor: pointer;
   }
-  .statistics-section{
+  .statistics-section {
     padding: 5px;
   }
   .statistics-section h2 {
     margin-top: 10px;
-
   }
-  .statistics-cards{
-  
+  .statistics-cards {
   }
 }
