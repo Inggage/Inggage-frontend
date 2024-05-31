@@ -102,7 +102,12 @@
   overflow: hidden;
   text-align: center;
   font-family: Gilroy-Bold;
-  white-space: nowrap;
+ 
+  display: flex;
+  flex-wrap: wrap;
+  
+  flex-direction: column;
+  
 }
 .brands-section h2 {
   font-weight: bolder;
@@ -111,13 +116,16 @@
 }
 
 .brands-logos {
-  margin: 30px 0;
+  margin: 30px ;
   display: inline-block;
+  flex-wrap: wrap;
+  
+  
 }
 
 .brands-logos img {
   display: inline-block;
-  margin: 0 30px;
+  margin: 20px 30px;
   width: 100px;
  
   transition: transform 0.3s ease;
