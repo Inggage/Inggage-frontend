@@ -209,11 +209,7 @@ const SignupForm = () => {
                 Continue with Facebook
               </button>
             </div>
-            <div className={styles.buttonContainer}>
-              <button type="submit" className={styles.continueButton}>
-                CONTINUE
-              </button>
-            </div>
+            
           </form>
         </div>
       </div>

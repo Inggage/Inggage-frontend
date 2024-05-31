@@ -6,6 +6,7 @@
   width: 100%;
   padding: 0 40px;
   box-sizing: border-box;
+  font-family: Gilroy-Medium;
 }
 
 .formImage {
@@ -59,6 +60,7 @@
   text-align: left;
   margin-bottom: 10px;
   color: white;
+  font-family: Gilroy-Bold;
 }
 
 .description {
@@ -78,7 +80,7 @@
   padding: 10px;
   margin-bottom: 7px;
   border: 1px solid #ccc;
-  border-radius: 12px;
+  border-radius: 50px;
   outline: none;
   box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
 }
@@ -89,7 +91,7 @@
   width: 100%;
   padding: 10px;
   border: none;
-  border-radius: 12px;
+  border-radius: 50px;
   box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
   cursor: pointer;
   background-color: #ffffff;
@@ -111,7 +113,7 @@
   width: 100%;
   padding: 10px;
   border: none;
-  border-radius: 12px;
+  border-radius: 50px;
   box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
   background-color: #000000;
   color: rgb(255, 255, 255);

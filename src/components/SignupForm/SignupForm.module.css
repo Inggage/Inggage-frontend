@@ -93,7 +93,7 @@
   padding: 15px;
   margin-bottom: 10px;
   border: none;
-  border-radius: 20px;
+  border-radius: 50px;
   outline: none;
   box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
 }
@@ -104,12 +104,11 @@
  
 }
 
-
-
 .buttonContainer {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-bottom: 20px;
 }
 .authButton,
 .submitButton,
@@ -197,12 +196,18 @@
   .connectButton {
     width: 100%; /* Ensures buttons use all the horizontal space */
   }
+  .authButton {
+    background-color: #f6f6f6;
+    color: rgba(11, 11, 11, 0.997);
+    padding: 15px;
+    
+  }
+  .inputField {
+    padding: 15px;
+  }
 }
 
 @media (max-width: 480px) {
-  
-  
-
   .formContainer {
     padding: 16px;
     width: 100%;
@@ -224,6 +229,25 @@
   }
   .buttonContainer {
     gap: 3px;
+    
+    
+  }
+
+  .inputField {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
+  }
+
+  .authButton {
+    background-color: #f6f6f6;
+    color: rgba(11, 11, 11, 0.997);
+    padding: 15px;
+    
   }
  
 }
