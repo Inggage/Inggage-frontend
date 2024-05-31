@@ -3,9 +3,13 @@ import CountUp from "react-countup";
 import { useNavigate } from "react-router-dom";
 import bg1 from "../../assets/bg1.png";
 import bg2 from "../../assets/bg2.png";
-import analytics from '../../assets/analytics.png'
-import search from '../../assets/search.png'
-import campaign from '../../assets/campaign.png'
+import analytics from "../../assets/analytics.png";
+import search from "../../assets/search.png";
+import ceat from "../../assets/ceat.png";
+import ajio from "../../assets/ajio.png";
+import dbs from "../../assets/dbs.png";
+import tata from "../../assets/tata.png";
+import campaign from "../../assets/campaign.png";
 import "./LandingPage.css";
 
 const LandingPage = () => {
@@ -28,7 +32,6 @@ const LandingPage = () => {
         <p>engage, and retain more users. Trusted by over 4,000 startups.</p>
         <button className="StartBtn" onClick={handleClick}>
           Get Started
-          Gilroy Bold
         </button>
         <div className="lowerImage">
           <img src={bg2} alt="bg2" />
@@ -65,16 +68,12 @@ const LandingPage = () => {
         <h2>Our Trusted Brands</h2>
         <div className="brands-logos">
           {/* Add your brand logos here */}
+          <img src={ceat} alt="Brand 1" />
+          <img src={ajio} alt="Brand 1" />
+          <img src={dbs} alt="Brand 1" />
+          <img src={tata} alt="Brand 2" />
           <img
-            src="https://images.crowdspring.com/blog/wp-content/uploads/2023/07/03162944/amazon-logo-1.png"
-            alt="Brand 1"
-          />
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Zomato_Logo.svg/2560px-Zomato_Logo.svg.png"
-            alt="Brand 2"
-          />
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS8MH1iq2JUQ6Fo69eGgDZjB-rGw_baSMXw2hhLc_d&s"
+            src="https://latestlogo.com/wp-content/uploads/2023/12/meesho-logo.png"
             alt="Brand 3"
           />
           {/* More logos */}
@@ -87,38 +86,27 @@ const LandingPage = () => {
         <div className="features-cards">
           <div className="feature-card">
             <div className="image-container">
-              <img
-                src={analytics}
-                alt="Analytics Dashboard"
-              />
+              <img src={analytics} alt="Analytics Dashboard" />
             </div>
             <h3>Comprehensive Analytics Dashboard</h3>
             <p>
-              Track the performance of your campaigns with detailed analytics
-              and insights. Measure engagement, reach, conversions, and ROI in
-              real-time.
+              Track campaign performance with detailed analytics and insights.
+              Measure engagement, reach, conversions, and ROI in real-time.
             </p>
           </div>
           <div className="feature-card">
             <div className="image-container">
-              <img
-                src={search}
-                alt="Influencer Discovery"
-              />
+              <img src={search} alt="Influencer Discovery" />
             </div>
             <h3>Influencer Discovery</h3>
             <p>
-              Discover the right influencers for your brand with our powerful
-              search and filtering tools. Access profiles, audience
-              demographics, and engagement metrics.
+              Find the right influencers with powerful search and filters.
+              Access profiles, audience demographics, and engagement metrics.
             </p>
           </div>
           <div className="feature-card">
             <div className="image-container">
-              <img
-                src={campaign}
-                alt="Campaign Management"
-              />
+              <img src={campaign} alt="Campaign Management" />
             </div>
             <h3>Campaign Management</h3>
             <p>

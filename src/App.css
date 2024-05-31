@@ -3,6 +3,14 @@
   src: url('./Fonts/Gilroy-Bold.ttf');
 }
 
-.App{
-  font-family: Gilroy-Bold;
+@font-face {
+  font-family: Gilroy-light;
+  src: url('./Fonts/Gilroy-Light.ttf');
 }
+
+@font-face {
+  font-family: Gilroy-medium;
+  src: url('./Fonts/Gilroy-Medium.ttf');
+}
+
+

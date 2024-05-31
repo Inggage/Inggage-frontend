@@ -8,6 +8,7 @@ import { auth, facebook } from "../../firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import emailjs from "emailjs-com";
 
+
 const SignupForm = () => {
   const [formData, setFormData] = useState({
     email: "",
