@@ -1,5 +1,5 @@
 import React from "react";
-
+import './App.css'
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";

@@ -1,6 +1,7 @@
 .headerContainer {
   width: 100%;
-  
+  font-family: Gilroy-Bold;
+
   display: flex;
   justify-content: center;
   background-color: #fafafa;
@@ -47,7 +48,8 @@
 .navLink {
   color: #272727;
   font-size: 16px;
-  font-family: "Gilroy";
+  font-family: Gilroy-Bold;
+
   font-weight: bold;
  
   text-decoration: none;
@@ -64,7 +66,7 @@
   margin-right: 5px;
   border-radius: 8px;
   font-size: 16px;
-  font-family: "Gilroy", sans-serif;
+  font-family: Gilroy-Bold;
   font-weight: 700;
   line-height: 24px;
   cursor: pointer;

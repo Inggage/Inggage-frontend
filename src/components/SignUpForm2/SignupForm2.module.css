@@ -43,7 +43,7 @@
   align-items: center;
   padding: 16px;
   color: white;
-  font-family: "Gilroy";
+  
 }
 
 .form {
@@ -79,6 +79,7 @@
   margin-bottom: 7px;
   border: 1px solid #ccc;
   border-radius: 12px;
+  outline: none;
   box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
 }
 

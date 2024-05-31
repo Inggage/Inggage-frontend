@@ -5,11 +5,13 @@
   justify-content: center;
   align-items: center;
   margin: 0 50px;
-  font-family: "Gilroy";
+  font-family: Gilroy-Bold;
+
  
 }
 .landing-container p {
   margin-bottom: 0;
+  font-weight: bold;
 }
 
 .upperImage img {
@@ -35,7 +37,7 @@
   border-radius: 8px;
   font-size: 16px;
   margin-top: 10px;
-  font-family: "Gilroy";
+  
   font-weight: 700;
   line-height: 24px;
   cursor: pointer;
@@ -51,7 +53,7 @@
 .statistics-section {
   padding: 50px 0;
 
-  font-family: "Gilroy", sans-serif;
+  font-family: Gilroy-Bold;
   background-color: #000f1f;
   text-align: center;
 }
@@ -103,7 +105,7 @@
   color: #ddd;
   overflow: hidden;
   text-align: center;
-  font-family: "Gilroy", sans-serif;
+  font-family: Gilroy-Bold;
   white-space: nowrap;
 }
 .brands-section h2 {
@@ -134,7 +136,7 @@
 /* Features Section */
 .features-section {
   text-align: center;
-  font-family: "Gilroy";
+  font-family: Gilroy-Bold;
   padding: 50px 0;
   color: #ddd;
   background-color: #000f1f;
@@ -404,6 +406,5 @@
   .statistics-section h2 {
     margin-top: 10px;
   }
-  .statistics-cards {
-  }
+
 }

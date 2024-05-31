@@ -28,6 +28,7 @@ const LandingPage = () => {
         <p>engage, and retain more users. Trusted by over 4,000 startups.</p>
         <button className="StartBtn" onClick={handleClick}>
           Get Started
+          Gilroy Bold
         </button>
         <div className="lowerImage">
           <img src={bg2} alt="bg2" />
