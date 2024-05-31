@@ -195,25 +195,21 @@ const SignupForm = () => {
             <div className={styles.orText}>OR</div>
             <div className={styles.buttonContainer}>
               <button
-                type="button"
+                type="submit"
                 onClick={() => login()}
                 className={styles.authButton}
               >
                 Continue with Google
               </button>
               <button
-                type="button"
+                type="submit"
                 onClick={() => loginFace(facebook)}
                 className={styles.authButton}
               >
                 Continue with Facebook
               </button>
             </div>
-            <div className={styles.buttonContainer}>
-              <button type="submit" className={styles.continueButton}>
-                CONTINUE
-              </button>
-            </div>
+           
           </form>
         </div>
       </div>
