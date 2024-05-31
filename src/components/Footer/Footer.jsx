@@ -28,7 +28,7 @@ const Footer = () => {
          
         </div>
         <div className={styles.footerText}>
-          © 2024 inGGage Media. All Rights Reserved.
+          © 2024 inggage Media. All Rights Reserved.
         </div>
       </div>
     </div>

@@ -113,6 +113,7 @@
   font-weight: bolder;
   color: #000f1f;
   margin-top: 12px;
+  font-size: 2rem;
 }
 
 .brands-logos {
@@ -382,6 +383,7 @@
   .landing-container p {
     text-align: center;
     margin: 2px;
+    font-family: Gilroy-Medium;
   }
   .upperImage img {
     width: 200px;
@@ -414,5 +416,21 @@
   }
   .statistics-section h2 {
     margin-top: 10px;
+    font-family: Gilroy-Medium;
+    font-size: 30px;
+    font-weight: bolder;
+  }
+
+  .statistics-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .features-section h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: bolder;
   }
 }

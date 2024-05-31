@@ -35,13 +35,16 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 16px;
+  font-family: Gilroy-Medium;
+
 }
 
 .button {
   padding: 12px 24px;
-  border-radius: var(--border-radius-sm);
+  font-family: Gilroy-Medium;
+
   font-size: 16px;
- 
+  
   font-weight: 700;
   cursor: pointer;
   border: none;
@@ -81,6 +84,8 @@
 .description {
   font-size: 12px;
   color: white;
+  font-family: Gilroy-Medium;
+
 }
 
 .inputField {
@@ -104,7 +109,7 @@
 .buttonContainer {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 .authButton,
 .submitButton,
@@ -112,27 +117,28 @@
   width: 100%;
   padding: 15px;
   border: none;
-  border-radius: 20px;
+  border-radius: 50px;
   box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
   cursor: pointer;
 }
 
 .authButton {
   background-color: #f6f6f6;
-  color: rgba(11, 11, 11, 0.811);
+  color: rgba(11, 11, 11, 0.997);
   font-weight: bold;
+  
 }
 
 .authButton:last-child {
   background-color: #ffffff;
-  color: rgba(18, 16, 16, 0.751);
+  color: rgb(3, 3, 3);
   font-weight: bold;
 }
 
 .continueButton {
   background-color: #000000;
   color: rgb(236, 236, 236);
-  border-radius: 20px;
+  border-radius: 50px;
   margin-top: 12px;
   margin-bottom: 12px;
   font-weight: bold;
@@ -194,13 +200,8 @@
 }
 
 @media (max-width: 480px) {
-  .title,
-  .asterisk,
-  .inputText,
-  .textareaText,
-  .button {
-    font-size: 14px;
-  }
+  
+  
 
   .formContainer {
     padding: 16px;
@@ -222,6 +223,7 @@
     justify-content: center;
   }
   .buttonContainer {
-    gap: 12px;
+    gap: 3px;
   }
+ 
 }
