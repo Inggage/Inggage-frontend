@@ -52,7 +52,7 @@ const SignupForm = () => {
         })
         .catch((err) => console.log(err));
     }
-  }, [user]);
+  }, [user,navigate]);
 
   const loginFace = async (provider) => {
     try {
