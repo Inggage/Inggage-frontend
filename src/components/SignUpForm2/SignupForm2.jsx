@@ -3,16 +3,86 @@ import styles from "./SignupForm2.module.css";
 import { useNavigate } from "react-router-dom";
 import HeroImage from "../HeroImage/HeroImage";
 import { database } from "../../firebase-config";
-import { ref, push } from 'firebase/database';
-//import { FaInstagram } from "react-icons/fa";
+import { ref, push } from "firebase/database";
+import makeAnimated from "react-select/animated";
+import Select from "react-select";
+
+const animatedComponents = makeAnimated();
+
+const nicheOptions = [
+  { value: "fashion", label: "Fashion" },
+  { value: "beauty", label: "Beauty" },
+  { value: "travel", label: "Travel" },
+  { value: "lifestyle", label: "Lifestyle" },
+  { value: "tech-hardware", label: "Tech (hardware)" },
+  { value: "tech-software", label: "Tech (software)" },
+  { value: "sports", label: "Sports" },
+  { value: "animals", label: "Animals" },
+  { value: "gaming", label: "Gaming" },
+  { value: "health-fitness", label: "Health and Fitness" },
+  { value: "family-parenting", label: "Family and Parenting" },
+  { value: "business", label: "Business" },
+  { value: "coaches", label: "Coaches" },
+  { value: "motivational", label: "Motivational" },
+  { value: "food", label: "Food" },
+  { value: "photography-cinematography", label: "Photography/Cinematography" },
+  { value: "mental-health", label: "Mental Health" },
+  { value: "psychology", label: "Psychology" },
+  { value: "lgbtq", label: "LGBTQ+" },
+  { value: "skincare", label: "Skincare" },
+  { value: "art", label: "Art" },
+  { value: "finance", label: "Finance" },
+  { value: "infotainment", label: "Infotainment" },
+  { value: "productivity", label: "Productivity" },
+  { value: "other", label: "Other" }
+];
+
+const customStyles = {
+  control: (provided) => ({
+    ...provided,
+    borderRadius: '50px',
+    outline: 'none',
+    padding: '5px',
+    boxShadow: '0 6px 4px rgba(0, 0, 0, 0.436)',
+    border: '1px solid #ccc',
+  }),
+  menu: (provided) => ({
+    ...provided,
+    backgroundColor: 'white',
+    color: 'black',
+  }),
+  option: (provided) => ({
+    ...provided,
+    color: 'black',
+  }),
+  multiValue: (provided) => ({
+    ...provided,
+    backgroundColor: '#ea0063',
+    color: 'white',
+  }),
+  multiValueLabel: (provided) => ({
+    ...provided,
+    color: 'white',
+  }),
+  multiValueRemove: (provided) => ({
+    ...provided,
+    color: 'white',
+    cursor: 'pointer',
+    ':hover': {
+      backgroundColor: '#ff74af',
+      color: 'white',
+    },
+  }),
+};
 
 const SignupForm2 = () => {
   const navigate = useNavigate();
   const [userType, setUserType] = useState("Influencer");
   const [step, setStep] = useState(1);
+
   const [formData, setFormData] = useState({
     userType: "Influencer",
-    niche: "",
+    niche: [],
     primaryPlatform: "",
     profileLink: "",
     collaborations: "",
@@ -23,6 +93,8 @@ const SignupForm2 = () => {
     influencerMarketing: "",
   });
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   useEffect(() => {
     const storedFormData = JSON.parse(localStorage.getItem("formData"));
     if (storedFormData) {
@@ -32,7 +104,33 @@ const SignupForm2 = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value !== undefined ? value : "" }));
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value !== undefined ? value : "",
+    }));
+  };
+
+  const handleNicheChange = (selectedOptions) => {
+    setFormData((prev) => ({
+      ...prev,
+      niche: selectedOptions || [],
+    }));
+  };
+
+  const handleNicheSelect = (option) => {
+    if (!formData.niche.some((n) => n.value === option.value)) {
+      setFormData((prev) => ({
+        ...prev,
+        niche: [...prev.niche, option],
+      }));
+    }
+  };
+
+  const handleNicheRemove = (option) => {
+    setFormData((prev) => ({
+      ...prev,
+      niche: prev.niche.filter((n) => n.value !== option.value),
+    }));
   };
 
   const handleUserTypeChange = (e) => {
@@ -41,7 +139,7 @@ const SignupForm2 = () => {
     setFormData((prev) => ({
       ...prev,
       userType: selectedType,
-      niche: "",
+      niche: [],
       primaryPlatform: "",
       profileLink: "",
       collaborations: "",
@@ -62,15 +160,21 @@ const SignupForm2 = () => {
     }
   };
 
+  const handleBackStep = () => {
+    setStep(step - 1);
+  };
+
   const validateCurrentStep = () => {
     if (userType === "Influencer" && step === 1) {
-      return formData.niche && formData.primaryPlatform;
+      return formData.niche.length > 0 && formData.primaryPlatform;
     } else if (userType === "Influencer" && step === 2) {
       return formData.profileLink && formData.collaborations;
     } else if (userType === "Brand" && step === 1) {
       return formData.industry && formData.websiteLink;
     } else if (userType === "Brand" && step === 2) {
-      return formData.companyType && formData.aovRoas && formData.influencerMarketing;
+      return (
+        formData.companyType && formData.aovRoas && formData.influencerMarketing
+      );
     }
     return false;
   };
@@ -80,20 +184,19 @@ const SignupForm2 = () => {
     if (step < 2) {
       handleNextStep();
     } else if (validateCurrentStep()) {
-      //console.log("Submitting data:", formData);
       localStorage.setItem("formData", JSON.stringify(formData));
-      const formDataRef = ref(database, userType === "Influencer" ? 'influencers/' : 'brands/');
+      const formDataRef = ref(
+        database,
+        userType === "Influencer" ? "influencers/" : "brands/"
+      );
       try {
         await push(formDataRef, formData);
         alert("Data submitted successfully!");
-        //console.log("+++data sent", formData);
         navigate("/dashboard");
       } catch (error) {
         console.error("Error:", error);
         alert("Something went wrong. Try Again!!");
       }
-    } else {
-     
     }
   };
 
@@ -106,9 +209,7 @@ const SignupForm2 = () => {
         <div className={styles.formContainer}>
           <form onSubmit={handleSubmit} className={styles.form}>
             <h2 className={styles.heading}>Almost there...</h2>
-            <p className={styles.description}>
-              Step {step}/2
-            </p>
+            <p className={styles.description}>Step {step}/2</p>
 
             <label className={styles.label}>You are signing up as</label>
             <select
@@ -125,16 +226,41 @@ const SignupForm2 = () => {
               <>
                 {step === 1 ? (
                   <>
-                    <label className={styles.label}>What niche do you work on?</label>
-                    <input
-                      className={styles.inputField}
-                      type="text"
-                      name="niche"
-                      value={formData.niche}
-                      onChange={handleChange}
-                      placeholder="Enter your niche"
-                    />
-                    <label className={styles.label}>What is your primary platform of collaboration?</label>
+                    <label className={styles.label}>
+                      What niche do you work on?
+                    </label>
+                    <div
+                      className={`${styles.inputField} ${styles.multiSelect}`}
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    >
+                      {formData.niche && formData.niche.length > 0 && formData.niche.map((niche) => (
+                        <span key={niche.value} className={styles.tag}>
+                          {niche.label}
+                          <button
+                            type="button"
+                            onClick={() => handleNicheRemove(niche)}
+                          >
+                            &times;
+                          </button>
+                        </span>
+                      ))}
+                      {isDropdownOpen && (
+                        <div className={styles.overlay}>
+                          {nicheOptions.map((option) => (
+                            <div
+                              key={option.value}
+                              className={styles.option}
+                              onClick={() => handleNicheSelect(option)}
+                            >
+                              {option.label}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <label className={styles.label}>
+                      What is your primary platform of collaboration?
+                    </label>
                     <select
                       className={styles.inputField}
                       name="primaryPlatform"
@@ -159,7 +285,9 @@ const SignupForm2 = () => {
                       onChange={handleChange}
                       placeholder="Enter your profile link"
                     />
-                    <label className={styles.label}>How many collaborations have you had roughly?</label>
+                    <label className={styles.label}>
+                      How many collaborations have you had roughly?
+                    </label>
                     <select
                       className={styles.inputField}
                       name="collaborations"
@@ -180,25 +308,28 @@ const SignupForm2 = () => {
             {userType === "Brand" && (
               <>
                 {step === 1 ? (
-                  <> <div className={styles.brandContainer}>
-                    <label className={styles.label}>Which industry are you based in</label>
-                    <input
-                      className={styles.inputField}
-                      type="text"
-                      name="industry"
-                      value={formData.industry}
-                      onChange={handleChange}
-                      placeholder="Enter your industry"
-                    />
-                    <label className={styles.label}>Website Link</label>
-                    <input
-                      className={styles.inputField}
-                      type="text"
-                      name="websiteLink"
-                      value={formData.websiteLink}
-                      onChange={handleChange}
-                      placeholder="Enter your website link"
-                    />
+                  <>
+                    <div className={styles.brandContainer}>
+                      <label className={styles.label}>
+                        Which industry are you based in
+                      </label>
+                      <input
+                        className={styles.inputField}
+                        type="text"
+                        name="industry"
+                        value={formData.industry}
+                        onChange={handleChange}
+                        placeholder="Enter your industry"
+                      />
+                      <label className={styles.label}>Website Link</label>
+                      <input
+                        className={styles.inputField}
+                        type="text"
+                        name="websiteLink"
+                        value={formData.websiteLink}
+                        onChange={handleChange}
+                        placeholder="Enter your website link"
+                      />
                     </div>
                   </>
                 ) : (
@@ -216,7 +347,9 @@ const SignupForm2 = () => {
                       <option value="D2C">D2C</option>
                       <option value="C2C">C2C</option>
                     </select>
-                    <label className={styles.label}>What's your AOV, RoAS?</label>
+                    <label className={styles.label}>
+                      What's your AOV, RoAS?
+                    </label>
                     <input
                       className={styles.inputField}
                       type="text"
@@ -225,7 +358,9 @@ const SignupForm2 = () => {
                       onChange={handleChange}
                       placeholder="Enter your AOV, RoAS"
                     />
-                    <label className={styles.label}>Have you worked with influencer marketing before?</label>
+                    <label className={styles.label}>
+                      Have you worked with influencer marketing before?
+                    </label>
                     <select
                       className={styles.inputField}
                       name="influencerMarketing"
@@ -243,9 +378,26 @@ const SignupForm2 = () => {
 
             <div className={styles.buttonContainer}>
               {step === 1 ? (
-                <button type="button" className={styles.submitButton} onClick={handleNextStep}>Continue</button>
+                <button
+                  type="button"
+                  className={styles.submitButton}
+                  onClick={handleNextStep}
+                >
+                  Continue
+                </button>
               ) : (
-                <button type="submit" className={styles.submitButton}>Submit</button>
+                <>
+                  <button type="submit" className={styles.submitButton}>
+                    Submit
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleBackStep}
+                    className={styles.submitButton}
+                  >
+                    Back
+                  </button>
+                </>
               )}
             </div>
           </form>
@@ -254,5 +406,7 @@ const SignupForm2 = () => {
     </>
   );
 };
+
+
 
 export default SignupForm2;

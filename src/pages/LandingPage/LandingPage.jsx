@@ -72,10 +72,7 @@ const LandingPage = () => {
           <img src={ajio} alt="Brand 1" />
           <img src={dbs} alt="Brand 1" />
           <img src={tata} alt="Brand 2" />
-          <img
-            src="https://latestlogo.com/wp-content/uploads/2023/12/meesho-logo.png"
-            alt="Brand 3"
-          />
+         
           {/* More logos */}
         </div>
       </div>
