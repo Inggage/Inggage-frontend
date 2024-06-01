@@ -88,12 +88,13 @@ const SignupForm = () => {
 
       const templateParams = {
         email: formData.email,
+        message:"Use this otp to verify your email and get started with Inggage.",
         otp: otp,
       };
 
       emailjs
         .send(
-          "service_4oa85cc", // Replace with your service ID
+          "service_rsbb72i", // Replace with your service ID
           "template_8ily7bb", // Replace with your template ID
           templateParams,
           "Rv2--lg-zY8PMp2HG" // Replace with your user ID
