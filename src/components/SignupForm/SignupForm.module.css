@@ -95,6 +95,7 @@
   border: none;
   border-radius: 50px;
   outline: none;
+  font-family: Gilroy-Medium;
   box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
 }
 
@@ -207,6 +208,9 @@
   }
 }
 
+/* 
+////  Mobile View
+*/
 @media (max-width: 480px) {
   .formContainer {
     padding: 16px;
@@ -241,13 +245,18 @@
     border-radius: 50px;
     outline: none;
     box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
+    font-family: Gilroy-Medium;
   }
 
   .authButton {
     background-color: #f6f6f6;
     color: rgba(11, 11, 11, 0.997);
-    padding: 15px;
+    padding: 15px;font-family: Gilroy-Medium;
+    font-size: 14px;
     
+  }
+  .authButton:last-child{
+    font-size: 14px;
   }
  
 }

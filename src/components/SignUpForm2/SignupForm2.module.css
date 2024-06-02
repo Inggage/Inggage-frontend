@@ -146,7 +146,9 @@
   }
 }
 
-
+/*
+///   Laptop View
+*/
 
 @media (max-width: 1024px) {
  
@@ -157,6 +159,10 @@
   }
 }
 
+
+/*
+///   Tab View
+*/
 @media (max-width: 768px) {
   .formContainer {
     padding: 24px;
@@ -173,6 +179,9 @@
   }
 }
 
+/*
+///   Mobile View
+*/
 @media (max-width: 480px) {
   .inputText,
   .textareaText,
@@ -181,7 +190,7 @@
   }
 
   .formContainer {
-    padding: 16px;
+    padding: 15px;
     width: 100%;
     z-index: 1;
     margin-bottom: 30px;
@@ -208,4 +217,47 @@
   .buttonContainer {
     gap: 12px;
   }
+}
+/* multiselect css*/
+.multiSelect {
+  width: 100%;
+  margin-bottom: 7px;
+  box-shadow: 0 6px 4px rgba(0, 0, 0, 0.436);
+}
+
+.reactSelect {
+  border-radius: 50px;
+  background-color: rgb(6, 6, 6);
+  color: white;
+}
+
+.reactSelect__control {
+  border-radius: 50px;
+  background-color: #73737304;
+  color: white;
+  border: none;
+  box-shadow: none;
+}
+
+.reactSelect__control--is-focused {
+  box-shadow: none;
+}
+
+.reactSelect__multi-value {
+  background-color: #3782d1;
+  color: white;
+}
+
+.reactSelect__multi-value__label {
+  color: rgb(194, 37, 37);
+}
+
+.reactSelect__multi-value__remove {
+  color: rgb(239, 36, 36);
+  cursor: pointer;
+}
+
+.reactSelect__multi-value__remove:hover {
+  background-color: #000000;
+  color: white;
 }

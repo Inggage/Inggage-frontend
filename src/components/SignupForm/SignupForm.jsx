@@ -81,7 +81,7 @@ const SignupForm = () => {
     if (!formData.email) {
       alert("Please enter your email");
       return;
-    }
+    }// eslint-disable-next-line
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formData.email)) {
       const otp = Math.floor(100000 + Math.random() * 900000).toString();
       setGeneratedOtp(otp);
@@ -132,8 +132,10 @@ const SignupForm = () => {
     if (!formData.email) {
       alert("Please enter your email");
     } else {
+      
       if (
-        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formData.email)
+        // eslint-disable-next-line
+        (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(formData.email)
       ) {
         localStorage.setItem("formData", JSON.stringify(formData));
         navigate("/Signupform2");

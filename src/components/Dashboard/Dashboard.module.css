@@ -9,8 +9,20 @@
   font-family: "Gilroy", sans-serif;
 }
 
+.dashContainer p{
+text-align: center;
+font-family: Gilroy-Medium;
+font-size: 30px;
+}
+.greet{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .dashContainer img{
-  width: 480px;
+  width: 400px;
 }
 
 .dashButton {
@@ -28,4 +40,11 @@
   font-weight: 700;
   line-height: 24px;
   cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .dashContainer img{
+    width: 350px;
+  }
+
 }
