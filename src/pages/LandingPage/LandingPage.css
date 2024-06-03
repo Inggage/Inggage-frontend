@@ -4,8 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 50px;
   font-family: Gilroy-Bold;
+
 }
 .landing-container p {
   margin-bottom: 0;
@@ -33,7 +33,6 @@
   border-radius: 8px;
   font-size: 16px;
   margin-top: 10px;
-
   font-weight: 700;
   line-height: 24px;
   cursor: pointer;
@@ -66,7 +65,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 60px;
+  gap:10rem;
 }
 
 .stat-card {
@@ -203,131 +202,7 @@
   color: #0e0e0f;
 }
 
-/* Testimonials Section */
-.testimonials-section {
-  text-align: center;
-  padding: 50px 0;
-  background-color: #f9f9f9;
-}
 
-.testimonials-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-}
-
-.testimonials-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.testimonial-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
-  width: 250px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.testimonial-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.testimonial-card img {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.testimonial-card p {
-  font-size: 1rem;
-  color: #555;
-}
-
-.testimonial-card h4 {
-  font-size: 1.2rem;
-  margin-top: 10px;
-}
-
-/* Contact Section */
-.contact-section {
-  padding: 50px 0;
-  background-color: #f9f9f9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.contact-image img {
-  max-width: 70%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.contact-form {
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 30px;
-  margin: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 400px;
-}
-
-.contact-form h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.contact-form .form-group {
-  margin-bottom: 15px;
-}
-
-.contact-form label {
-  display: block;
-  margin-bottom: 5px;
-  color: #333;
-  font-weight: bold;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.contact-form button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #0056b3;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {

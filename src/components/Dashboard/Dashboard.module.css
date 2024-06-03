@@ -4,7 +4,7 @@
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  height: 100vh;
+  margin: 20px 0;
   gap: 20px;
   font-family: "Gilroy", sans-serif;
 }
@@ -12,7 +12,7 @@
 .dashContainer p{
 text-align: center;
 font-family: Gilroy-Medium;
-font-size: 30px;
+font-size: 15px;
 }
 .greet{
   display: flex;
@@ -22,7 +22,7 @@ font-size: 30px;
   flex-direction: column;
 }
 .dashContainer img{
-  width: 400px;
+  width: 300px;
 }
 
 .dashButton {
@@ -44,7 +44,21 @@ font-size: 30px;
 
 @media (max-width: 480px) {
   .dashContainer img{
-    width: 350px;
+    width: 150px;
   }
+  
+  
+.dashButton button {
+  padding: 8px 16px;
+  background-color: #ff006b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 10px;
+  font-family: "Gilroy", sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+  cursor: pointer;
+}
 
 }

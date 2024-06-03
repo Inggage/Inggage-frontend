@@ -72,10 +72,7 @@ const LandingPage = () => {
           <img src={ajio} alt="Brand 1" />
           <img src={dbs} alt="Brand 1" />
           <img src={tata} alt="Brand 2" />
-          <img
-            src="https://latestlogo.com/wp-content/uploads/2023/12/meesho-logo.png"
-            alt="Brand 3"
-          />
+
           {/* More logos */}
         </div>
       </div>
@@ -116,77 +113,6 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      {/* Section 5 - Testimonials Section 
-      <div className="testimonials-section">
-        <h2>What Our Users Say</h2>
-        <div className="testimonials-cards">
-          <div className="testimonial-card">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpd4mJRIUwqgE8D_Z2znANEbtiz4GhI4M8NQ&s"
-              alt="User 1"
-            />
-            <p>"This service has transformed our business!"</p>
-            <h4>
-              - <i>"User 1"</i>
-            </h4>
-          </div>
-          <div className="testimonial-card">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpd4mJRIUwqgE8D_Z2znANEbtiz4GhI4M8NQ&s"
-              alt="User 2"
-            />
-            <p>"Amazing results with minimal effort."</p>
-            <h4>
-              - <i>"User 2"</i>
-            </h4>
-          </div>
-          <div className="testimonial-card">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpd4mJRIUwqgE8D_Z2znANEbtiz4GhI4M8NQ&s"
-              alt="User 3"
-            />
-            <p>"Highly recommend to all startups."</p>
-            <h4>
-              - <i>"User 3"</i>
-            </h4>
-          </div>
-        </div>
-      </div>
-
-      {/* Section 6 - Contact Section 
-      <div className="contact-section">
-        <div className="contact-container">
-          <div className="contact-image">
-            <img
-              src="https://img.freepik.com/free-vector/organic-flat-man-customer-support_23-2148893295.jpg"
-              alt="Contact Us"
-            />
-          </div>
-          <div className="contact-form">
-            <h2>Contact Us</h2>
-            <form>
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </div>*/}
     </>
   );
 };

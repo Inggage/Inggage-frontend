@@ -106,6 +106,7 @@ const SignupForm = () => {
               response.status,
               response.text
             );
+            alert("OTP sent Successfully")
             setOtpSent(true);
           },
           (err) => {
