@@ -4,8 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 50px;
   font-family: Gilroy-Bold;
-
 }
 .landing-container p {
   margin-bottom: 0;
@@ -65,7 +65,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap:10rem;
+  gap: 10rem;
 }
 
 .stat-card {
@@ -80,7 +80,7 @@
 
 .stat-card h3 {
   font-size: 2rem;
-  color: #FF006B;
+  color: #ff006b;
 }
 
 .stat-card p {
@@ -101,12 +101,11 @@
   overflow: hidden;
   text-align: center;
   font-family: Gilroy-Bold;
- 
+
   display: flex;
   flex-wrap: wrap;
-  
+
   flex-direction: column;
-  
 }
 .brands-section h2 {
   font-weight: bolder;
@@ -116,25 +115,21 @@
 }
 
 .brands-logos {
-  margin: 30px ;
+  margin: 30px;
   display: inline-block;
   flex-wrap: wrap;
-  
-  
 }
 
 .brands-logos img {
   display: inline-block;
   margin: 20px 30px;
   width: 100px;
- 
-  transition: transform 0.3s ease;
 
+  transition: transform 0.3s ease;
 }
-.brands-logos img:hover{
+.brands-logos img:hover {
   filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
   transform: translateY(-10px);
-  
 }
 
 /* Features Section */
@@ -193,7 +188,7 @@
   font-size: 1.5rem;
   margin-bottom: 10px;
   text-align: center;
-  color: #FF006B;
+  color: #ff006b;
 }
 .feature-card p {
   font-size: 1rem;
@@ -201,8 +196,6 @@
   font-family: Gilroy-medium;
   color: #0e0e0f;
 }
-
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -221,6 +214,7 @@
   .landing-container {
     padding-top: 12px;
     gap: 24px;
+    font-weight: Gilroy-Light;
   }
 
   .landing-container > * {
@@ -233,6 +227,7 @@
     flex-direction: column;
     padding-top: 12px;
     gap: 16px;
+    font-weight: Gilroy-Light;
   }
 
   .landing-container > * {
@@ -315,6 +310,5 @@
     font-size: 2rem;
     margin-bottom: 40px;
     font-family: Gilroy-Medium;
-    
   }
 }
