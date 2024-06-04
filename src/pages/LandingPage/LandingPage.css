@@ -44,12 +44,24 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.949);
 }
 
+/* Common Section */
+.Common-section {
+  background-image: url("../../assets/texture.png");
+  background-size: 100%;
+  border-radius: 20px;
+  margin:0 12px 12px 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.46);
+  border: 1px solid rgba(0, 0, 0, 0.162);
+ 
+}
+
 /* Statistics Section */
 .statistics-section {
   padding: 10px 0;
-
+  background-color: #f6f6f666;
+  background-size: 50%;
   font-family: Gilroy-Bold;
-  background-color: #e9eaec;
+
   text-align: center;
 }
 
@@ -69,7 +81,7 @@
 }
 
 .stat-card {
-  background: #f9f9f931;
+  background-color: #f6f6f6ec;
   border: 1px solid #0d0d0d0f;
   border-radius: 10px;
   padding: 20px;
@@ -96,7 +108,7 @@
 /* Brand section*/
 
 .brands-section {
-  background: #e9eaec;
+  background-color: #f6f6f666;
   color: #ddd;
   overflow: hidden;
   text-align: center;
@@ -138,10 +150,10 @@
   font-family: Gilroy-Bold;
   padding: 50px 0;
   color: #0b0808ef;
-  background-color: #e9eaec;
+  background-color: #f6f6f666;
 }
 .features-section h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 40px;
   font-weight: bolder;
 }
@@ -150,17 +162,16 @@
   flex-wrap: wrap;
   justify-items: center;
   justify-content: space-around;
+  gap: 12px;
+  margin: 0 20px;
 }
 .feature-card {
   background: #ffffffc3;
   border: 1px solid #dddddd00;
   padding: 0 20px;
-  margin: 10px;
   border-radius: 10px;
   width: 300px;
-
   text-align: left;
-
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.46);
@@ -185,7 +196,7 @@
   height: 100%;
 }
 .feature-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 10px;
   text-align: center;
   color: #ff006b;
@@ -245,7 +256,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .landing-container {
     padding-top: 5px;
     height: auto;
