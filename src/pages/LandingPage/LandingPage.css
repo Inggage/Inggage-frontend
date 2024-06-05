@@ -46,18 +46,17 @@
 
 /* Common Section */
 .Common-section {
-  background-image: url("../../assets/texture.png");
+ 
   background-size: 100%;
   border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.46);
-  border: 1px solid rgba(0, 0, 0, 0.162);
+  
  
 }
 
 /* Statistics Section */
 .statistics-section {
   padding: 10px 0;
-  background-color: #f6f6f666;
+ 
   background-size: 50%;
   font-family: Gilroy-Bold;
 
@@ -80,7 +79,7 @@
 }
 
 .stat-card {
-  background-color: #f6f6f6ec;
+ 
   border: 1px solid #0d0d0d0f;
   border-radius: 10px;
   padding: 20px;
@@ -107,7 +106,7 @@
 /* Brand section*/
 
 .brands-section {
-  background-color: #f6f6f666;
+  
   color: #ddd;
   overflow: hidden;
   text-align: center;
@@ -149,7 +148,7 @@
   font-family: Gilroy-Bold;
   padding: 50px 0;
   color: #0b0808ef;
-  background-color: #f6f6f666;
+ 
 }
 .features-section h2 {
   font-size: 2rem;
