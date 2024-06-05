@@ -46,7 +46,7 @@
 
 /* Common Section */
 .Common-section {
- 
+  /* background-image: url('https://cdn.pixabay.com/photo/2021/06/25/12/26/social-media-6363633_1280.jpg'); */
   background-size: 100%;
   border-radius: 20px;
   
@@ -106,7 +106,8 @@
 /* Brand section*/
 
 .brands-section {
-  
+ 
+
   color: #ddd;
   overflow: hidden;
   text-align: center;

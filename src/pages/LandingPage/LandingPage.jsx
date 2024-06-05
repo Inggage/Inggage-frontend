@@ -56,19 +56,19 @@ const LandingPage = () => {
               <h3>
                 <CountUp end={400} duration={2} />+
               </h3>
-              <p>Startups</p>
+              <p>Creators</p>
             </div>
             <div className="stat-card">
               <h3>
                 <CountUp end={100} duration={2} />+
               </h3>
-              <p>Users Engaged</p>
+              <p>Trusted Brands</p>
             </div>
             <div className="stat-card">
               <h3>
-                <CountUp end={100} duration={2} />+
+                <CountUp end={200} duration={2} />+
               </h3>
-              <p>Data Points Analyzed</p>
+              <p>Campaigns</p>
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@ const LandingPage = () => {
               <div className="image-container">
                 <img src={feature4} alt="Campaign Management" />
               </div>
-              <h3>performance based metrics</h3>
+              <h3>Performance Based Metrics</h3>
               <p>
                 Track key metrics (traffic, leads, sales) to refine campaigns,
                 identify high-performing influencers, and maximize ROI.
