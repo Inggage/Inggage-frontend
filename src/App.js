@@ -7,6 +7,8 @@ import { Routes, BrowserRouter as Router, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard/Dashboard";
 import SignupForm from "./components/SignupForm/SignupForm";
 import SignupForm2 from "./components/SignUpForm2/SignupForm2";
+import Profile from "./pages/Profiles/Profile";
+import ProfileCard from "./components/ProfileCard/ProfileCard";
 
 const App = () => {
   // log out function to log the user out of google and set the profile array to null
@@ -20,6 +22,9 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/Signupform" element={<SignupForm />}></Route>
           <Route path="/Signupform2" element={<SignupForm2 />}></Route>
+
+          <Route path="/Profile" element={<Profile />}></Route>
+          <Route path="/Profilecard" element={<ProfileCard />}></Route>
         </Routes>
       </Router>
       <Footer />

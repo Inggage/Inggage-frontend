@@ -4,13 +4,19 @@
 }
 
 @font-face {
-  font-family: Gilroy-light;
+  font-family: Gilroy-Light;
   src: url('./Fonts/Gilroy-Light.ttf');
 }
 
 @font-face {
-  font-family: Gilroy-medium;
+  font-family: Gilroy-Medium;
   src: url('./Fonts/Gilroy-Medium.ttf');
 }
+
+@font-face {
+  font-family: Gilroy-Heavy;
+  src: url('./Fonts/Gilroy-Heavy.ttf');
+}
+
 
 
