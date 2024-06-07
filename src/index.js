@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <>
-  <GoogleOAuthProvider clientId='358842123046-2eip6lqnnvs78b8qoqvq8ismt8qmklce.apps.googleusercontent.com'>
+  <GoogleOAuthProvider clientId='319566936145-6au8j94l2gvlqh4amtqj9afl1r6ava2q.apps.googleusercontent.com'>
     <React.StrictMode>
       <App />
     </React.StrictMode>
