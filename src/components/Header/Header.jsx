@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   const handleClick = ()=>{
-    navigate("/signupform")
+    navigate("/signup")
   }
 
   return (

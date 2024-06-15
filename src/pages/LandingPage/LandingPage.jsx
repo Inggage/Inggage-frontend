@@ -1,9 +1,11 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import CountUp from "react-countup";
 import { useNavigate } from "react-router-dom";
 import bg1 from "../../assets/bg1.png";
 import bg2 from "../../assets/bg2.png";
 import "./LandingPage.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // Brands assets
 import ceat from "../../assets/brands/ceat.png";
@@ -21,36 +23,42 @@ import search from "../../assets/search.png";
 import campaign from "../../assets/campaign.png";
 import feature4 from "../../assets/feature4.png";
 
+
 const LandingPage = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/signupform");
+    navigate("/signup");
   };
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
   return (
     <>
+    
       {/* Section 1 - Hero Section */}
-      <div className="landing-container">
-        <div className="upperImage">
+      <div className="landing-container" >
+        <div className="upperImage"  data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="600">
+        
           <img src={bg1} alt="bg1" />
         </div>
-        <p>
+        <p data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="1000">
           Powerful, self-serve product and growth analytics to help you convert,
         </p>
-        <p>engage, and retain more users. Trusted by over 4,000 startups.</p>
-        <button className="StartBtn" onClick={handleClick}>
+        <p data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="1000">engage, and retain more users. Trusted by over 4,000 startups.</p>
+        <button className="StartBtn" onClick={handleClick} data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="1200">
           Get Started
         </button>
-        <div className="lowerImage">
+        <div className="lowerImage" data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="1400">
           <img src={bg2} alt="bg2" />
         </div>
       </div>
 
       {/* Stats section*/}
       <div className="Common-section">
-        <div className="statistics-section">
-          <h2>Our Achievements</h2>
+        <div className="statistics-section" data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="1000">
+          <h2 data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="1000">Our Achievements</h2>
           <div className="statistics-cards">
             <div className="stat-card">
               <h3>
@@ -74,8 +82,8 @@ const LandingPage = () => {
         </div>
 
         {/* Section 3 - Brands Animation Section */}
-        <div className="brands-section">
-          <h2>Our Trusted Brands</h2>
+        <div className="brands-section" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="600">
+          <h2 data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="900">Our Trusted Brands</h2>
           <div className="brands-logos">
             {/* Add your brand logos here */}
             <img src={ceat} alt="Brand 1" />
@@ -92,10 +100,10 @@ const LandingPage = () => {
         </div>
 
         {/*<!-- Section 4 - Features Section -->*/}
-        <div className="features-section">
-          <h2>Our Features</h2>
-          <div className="features-cards">
-            <div className="feature-card">
+        <div className="features-section" data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="600" >
+          <h2 data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="600" >Our Features</h2>
+          <div className="features-cards" >
+            <div className="feature-card"   data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="600">
               <div className="image-container">
                 <img src={analytics} alt="Analytics Dashboard" />
               </div>
@@ -105,7 +113,7 @@ const LandingPage = () => {
                 Measure engagement, reach, conversions, and ROI in real-time.
               </p>
             </div>
-            <div className="feature-card">
+            <div className="feature-card" data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="800">
               <div className="image-container">
                 <img src={search} alt="Influencer Discovery" />
               </div>
@@ -115,7 +123,7 @@ const LandingPage = () => {
                 Access profiles, audience demographics, and engagement metrics.
               </p>
             </div>
-            <div className="feature-card">
+            <div className="feature-card" data-aos='fade-up' data-aos-easing="ease-in-sine" data-aos-duration="1000">
               <div className="image-container">
                 <img src={campaign} alt="Campaign Management" />
               </div>
@@ -126,7 +134,7 @@ const LandingPage = () => {
                 platform.
               </p>
             </div>
-            <div className="feature-card">
+            <div className="feature-card" data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="1200">
               <div className="image-container">
                 <img src={feature4} alt="Campaign Management" />
               </div>
@@ -139,6 +147,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+     
     </>
   );
 };

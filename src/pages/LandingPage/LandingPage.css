@@ -6,6 +6,7 @@
   align-items: center;
   margin: 0 50px;
   font-family: Gilroy-Bold;
+ 
   
   
 }
@@ -162,8 +163,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-items: center;
+   
   justify-content: space-around;
-  gap: 12px;
+  gap: 16px;
   margin: 0 20px;
 }
 .feature-card {
@@ -171,7 +173,7 @@
   border: 1px solid #2727279a;
   padding: 0 20px;
   border-radius: 10px;
-  width: 300px;
+  width: 280px;
   text-align: left;
   position: relative;
   overflow: hidden;

@@ -11,7 +11,7 @@ import Profile from "./pages/Profiles/Profile";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 
 const App = () => {
-  // log out function to log the user out of google and set the profile array to null
+  
 
   return (
     <div className="App">
@@ -20,11 +20,11 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LandingPage />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
-          <Route path="/Signupform" element={<SignupForm />}></Route>
-          <Route path="/Signupform2" element={<SignupForm2 />}></Route>
+          <Route path="/Signup" element={<SignupForm />}></Route>
+          <Route path="/Signupform" element={<SignupForm2 />}></Route>
 
           <Route path="/Profile" element={<Profile />}></Route>
-          <Route path="/Profilecard" element={<ProfileCard />}></Route>
+          <Route path="/search_influencers" element={<ProfileCard />}></Route>
         </Routes>
       </Router>
       <Footer />

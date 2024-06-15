@@ -48,7 +48,7 @@ const SignupForm = () => {
 
           setFormData(updatedFormData);
           localStorage.setItem("formData", JSON.stringify(updatedFormData));
-          navigate("/Signupform2");
+          navigate("/Signupform");
         })
         .catch((err) => console.log(err));
     }
@@ -66,7 +66,7 @@ const SignupForm = () => {
       };
       setFormData(updatedFormData);
       localStorage.setItem("formData", JSON.stringify(updatedFormData));
-      navigate("/Signupform2");
+      navigate("/Signupform");
     } catch (e) {
       console.log(`login error ${e}`);
     }
@@ -122,7 +122,7 @@ const SignupForm = () => {
     if (formData.otp === generatedOtp) {
       alert("OTP verified successfully!");
       localStorage.setItem("formData", JSON.stringify(formData));
-      navigate("/Signupform2");
+      navigate("/Signupform");
     } else {
       alert("Invalid OTP. Please try again.");
     }
@@ -139,7 +139,7 @@ const SignupForm = () => {
         (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(formData.email)
       ) {
         localStorage.setItem("formData", JSON.stringify(formData));
-        navigate("/Signupform2");
+        navigate("/Signupform");
       } else {
         alert("Invalid Email. Please try again.");
       }
