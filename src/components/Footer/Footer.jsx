@@ -7,19 +7,12 @@ import "aos/dist/aos.css";
 
 const Footer = () => {
   useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 600,
-      easing: "ease-in-sine",
-      delay: 100,
-    });
+    AOS.init();
   }, []);
   return (
     <div
       className={styles.footerContainer}
-      data-aos="fade-up"
-      data-aos-easing="ease-in-sine"
-      data-aos-duration="1400"
+     
     >
       <div className={styles.blackBackground}></div>
       <div className={styles.footerContent}>
@@ -56,9 +49,7 @@ const Footer = () => {
         </div>
         <div
           className={styles.footerText}
-          data-aos="fade-up"
-          data-aos-easing="ease-in-sine"
-          data-aos-duration="1400"
+          
         >
           © 2024 inggage Media. All Rights Reserved.
         </div>
