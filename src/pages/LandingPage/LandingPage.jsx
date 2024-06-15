@@ -30,6 +30,7 @@ const LandingPage = () => {
   const handleClick = () => {
     navigate("/signup");
   };
+
   useEffect(() => {
     AOS.init();
   }, [])
@@ -39,7 +40,7 @@ const LandingPage = () => {
     
       {/* Section 1 - Hero Section */}
       <div className="landing-container" >
-        <div className="upperImage"  data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="600">
+        <div className="upperImage"  data-aos='fade-up' data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600">
         
           <img src={bg1} alt="bg1" />
         </div>
@@ -58,7 +59,7 @@ const LandingPage = () => {
       {/* Stats section*/}
       <div className="Common-section">
         <div className="statistics-section" data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="1000">
-          <h2 data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="1000">Our Achievements</h2>
+          <h2 data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="600">Our Achievements</h2>
           <div className="statistics-cards">
             <div className="stat-card">
               <h3>

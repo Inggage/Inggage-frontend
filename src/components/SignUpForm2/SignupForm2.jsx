@@ -7,6 +7,8 @@ import { database } from "../../firebase-config";
 import { ref, push } from "firebase/database";
 import niches from './niches';
 import SelectCss from './SelectCss';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const SignupForm2 = () => {
   const navigate = useNavigate();
@@ -41,6 +43,10 @@ const SignupForm2 = () => {
       }
     }
   }, []);
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
   const handleUserTypeChange = (e) => {
     const selectedType = e.target.value;
@@ -81,7 +87,7 @@ const SignupForm2 = () => {
   };
 
    const handleBackBtn =()=>{
-    navigate('/signupForm')
+    navigate('/signup')
    }
 
   const validateCurrentStep = () => {
@@ -129,10 +135,10 @@ const SignupForm2 = () => {
   return (
     <>
       <div className={styles.SignupForm}>
-        <div className={styles.formImage}>
+        <div className={styles.formImage} data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="600">
           <HeroImage />
         </div>
-        <div className={styles.formContainer}>
+        <div className={styles.formContainer} data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="600">
           <form onSubmit={handleSubmit} className={styles.form}>
             <h2 className={styles.heading}>Almost there...</h2>
             <p className={styles.description}>Step {step}/2</p>

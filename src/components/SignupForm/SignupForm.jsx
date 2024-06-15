@@ -7,7 +7,8 @@ import axios from "axios";
 import { auth, facebook } from "../../firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import emailjs from "emailjs-com";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -53,6 +54,10 @@ const SignupForm = () => {
         .catch((err) => console.log(err));
     }
   }, [user,navigate]);
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
   const loginFace = async (provider) => {
     try {
@@ -148,12 +153,12 @@ const SignupForm = () => {
 
   return (
     <>
-      <div className={styles.SignupForm}>
-        <div className={styles.formImage}>
+      <div className={styles.SignupForm} >
+        <div className={styles.formImage}  data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="600">
           <img src={formImage} alt="formimage"></img>
         </div>
-        <div className={styles.formContainer}>
-          <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.formContainer} data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="600" >
+          <form onSubmit={handleSubmit} className={styles.form}  >
             <h2 className={styles.heading}>Sign Up</h2>
             <p className={styles.description}>
               We will require your email ID to further proceed and get in touch

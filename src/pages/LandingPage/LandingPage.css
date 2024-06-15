@@ -39,12 +39,13 @@
   font-weight: 700;
   line-height: 24px;
   cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.949);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .StartBtn:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.949);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.949);
 }
 
 /* Common Section */
@@ -91,6 +92,11 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.949);
+}
+
 .stat-card h3 {
   font-size: 2rem;
   color: #ff006b;
@@ -101,10 +107,7 @@
   color: #2bb2ec;
 }
 
-.stat-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.949);
-}
+
 
 /* Brand section*/
 
