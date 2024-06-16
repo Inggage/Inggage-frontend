@@ -7,12 +7,10 @@ import { Routes, BrowserRouter as Router, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard/Dashboard";
 import SignupForm from "./components/SignupForm/SignupForm";
 import SignupForm2 from "./components/SignUpForm2/SignupForm2";
-import Profile from "./pages/Profiles/Profile";
+import Profile from "./components/Profiles/Profile";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 
 const App = () => {
-  
-
   return (
     <div className="App">
       <Router>

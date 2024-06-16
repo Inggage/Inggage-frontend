@@ -1,0 +1,98 @@
+
+
+  .collabScheduleCard {
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #ffffff;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  .legend {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .red {
+    background-color: red;
+  }
+  
+  .blue {
+    background-color: blue;
+  }
+  
+  .customCalendar {
+    width: 100%;
+    border: none;
+  }
+  
+  .customCalendar .react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .customCalendar .react-calendar__month-view__weekdays {
+    font-weight: bold;
+  }
+  
+  .customCalendar .react-calendar__tile {
+    position: relative;
+    padding: 10px;
+    border-radius: 50%; /* Make each tile a circle */
+    border: 1px solid red; /* Add a border to each tile */
+  }
+  
+  .customCalendar .react-calendar__tile:enabled:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+  }
+  
+  .customCalendar .react-calendar__tile--now {
+    border: 1px solid black;
+    border-radius: 50%;
+    background: lightgray;
+  }
+  
+  .customCalendar .react-calendar__tile--active {
+    background: #222427;
+    color: white;
+    border-radius: 50%;
+  }
+  
+  .customCalendar .react-calendar__tile--hasActive {
+    background: #09aa00;
+    color: white;
+  }
+  
+  .customCalendar .react-calendar__tile--hover {
+    background: #ab5b5b;
+  }
+  
+  .event {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  @media (max-width:480px) {
+    .collabScheduleCard {
+        margin: 0 10px 0 10px;
+        width: 96%;
+      
+      }
+  }

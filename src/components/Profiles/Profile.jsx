@@ -1,6 +1,10 @@
 // Profile.js
-import React from 'react';
-import styles from './Profile.module.css';  // Import your CSS file
+import React from "react";
+import styles from "./Profile.module.css"; // Import your CSS file
+import EarningCom from "./EarningCom/EarningCom";
+import CollabStats from "./CollabStats/CollabStats";
+import EarnGraph from "./EarningLineGraph/EarnGraph";
+import CollabSchedule from "./CollabSchedule/CollabSchedule";
 
 const Profile = () => {
   return (
@@ -29,8 +33,8 @@ const Profile = () => {
       <div className={styles.profileData}>
         {/* for some margin to the left */}
         <div className={styles.spaceLeft}></div>
-      
-       {/* Middle Part of Profile Detail */}
+
+        {/* Middle Part of Profile Detail */}
         <div className={styles.leftProfileData}>
           <div className={styles.description}>
             <p>
@@ -42,54 +46,34 @@ const Profile = () => {
             </p>
           </div>
           <hr />
-          <div className={styles.statsContainer}>
-            <div className={styles.statBox}>
-              <span>🔰</span>
-              <p>Total Earnings</p>
-              <h3>Rs 3,90,018</h3>
-            </div>
-            <div className={styles.statBox}>
-            <span>🔰</span>
-              <p>Monthly Increase</p>
-              <h3>12.70</h3>
-            </div>
-            <div className={styles.statBox}>
-            <span>🔰</span>
-              <p>Total Collaborations</p>
-              <h3>32</h3>
-            </div>
-          </div>
 
-          <div className={styles.EarningStatsCard}>
-            <h3>Earning Buildup</h3>
-            <hr />
-            <div className={styles.earningStats}>
-              <p>Total followers: 1.2 Crore</p>
-              <p>Total followers: 1.2 Crore</p>
-              <p>Total followers: 1.2 Crore</p>
-            </div>
-          </div>
+          {/* Earning Block */}
+         <EarningCom/>
 
-          <div className={styles.CollabStatsCard}>
-            <h3>Collaborations stats</h3>
-            <hr />
-            <div className={styles.collabStats}>
-              <p>Followers gained: 3,893</p>
-              <p>Average Collab: 1,37,893</p>
-              <p>Content views: 1,37,893</p>
-            </div>
-          </div>
+          {/* Earning and Views statistics line Graph */}
+         <EarnGraph/>
+
+          {/* Collab Stats */}
+          <CollabStats/>
+
+          {/* Collab Schedule */}
+          <CollabSchedule/>
         </div>
+
         <div className={styles.rightProfileData}>
           <div className={styles.socialStats}>
             <h3>Social Statistics</h3>
             <div className={styles.socialBox}>
-              <p style={{ fontWeight: 'bold' }}>Total Followers on Instagram: 1,98,288</p>
+              <p style={{ fontWeight: "bold" }}>
+                Total Followers on Instagram: 1,98,288
+              </p>
               <p>Total Collab Views: 99,827</p>
               <p>Total Collab Likes: 99,827</p>
             </div>
             <div className={styles.socialBox}>
-              <p style={{ fontWeight: 'bold' }}>Total Subscribers on YouTube: 99,827</p>
+              <p style={{ fontWeight: "bold" }}>
+                Total Subscribers on YouTube: 99,827
+              </p>
               <p>Total Collab Views: 99,827</p>
               <p>Total Collab Likes: 99,827</p>
             </div>

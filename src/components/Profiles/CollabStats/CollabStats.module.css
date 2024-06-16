@@ -1,0 +1,97 @@
+.collabStatsCard {
+  border: 1px solid #0c0b0b;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #ffffff;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.chartsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chartItem {
+  width: 30%;
+  text-align: center;
+  position: relative;
+}
+
+.chartItem h4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.collabDetails {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.collabItem {
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-bottom: 15%;
+}
+
+.collabItemContent {
+  margin-left: 10px;
+}
+
+.collabItemContent p {
+  margin: 2px 0;
+  font-size: 12px;
+  color: #666666;
+}
+
+@media (max-width: 480px) {
+  .collabStatsCard {
+    border: 1px solid #0c0b0b;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #ffffff;
+    width: 96%;
+    margin: 20px 0 20px 12px;
+  }
+  .chartsContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .chartItem {
+    width: 98%;
+    text-align: center;
+    position: relative;
+  }
+  
+  .collabDetails {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    flex-direction: column;
+  }
+  
+  .collabItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 0;
+  }
+}

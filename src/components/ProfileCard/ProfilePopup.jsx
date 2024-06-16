@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./ProfilePopup.module.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ProfilePopup = ({ profile, onClose }) => {
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 600,
+      easing: "ease-in-sine",
+      delay: 100,
+    });
+  }, []);
+
   if (!profile) return null;
 
   return (
     <div className={styles.popupOverlay}>
-      <div className={styles.popupContent}>
+      <div className={styles.popupContent} data-aos="zoom-in"
+     
+      data-aos-easing="ease-in"
+      data-aos-duration="200">
         <button className={styles.closeButton} onClick={onClose}>
           ⚔️
         </button>

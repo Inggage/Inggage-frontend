@@ -1,238 +1,219 @@
 .popupOverlay {
-    position: fixed;
-    top: 0px; 
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.537);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.537);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
 }
 
 .popupContent {
-    background-image: url('../../assets/texture.png'); 
-    border-radius: 15px;
-    width: 1584px;
-    
-   
-    height: auto;
-    position: relative;
-    margin: 550px 150px ;
-    overflow-y: auto;
+  background-image: url("../../assets/texture.png");
+  border-radius: 15px;
+  width: 1584px;
+
+  height: auto;
+  position: relative;
+  margin: 550px 150px;
+  overflow-y: auto;
 }
 
 .closeButton {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .profileBanner {
-    width: 100%;
-    height: 150px;
-    overflow: hidden;
-    border-radius: 15px 15px 0 0;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
 }
 
 .bannerImg {
-    width: 100%;
-    height: 150px;
-   
+  width: 100%;
+  height: 150px;
 }
 
 .profileInfo {
-    
-    display: flex;
-    margin-top: -80px;
-    margin-left: 50px;
+  display: flex;
+  margin-top: -80px;
+  margin-left: 50px;
 }
 
 .profileImg {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid white;
-    margin-bottom: 10px;
-    
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-bottom: 10px;
 }
 .profileInfo span {
-    border-radius: 12px;
-    padding: 5px 10px;
-    background: hsl(340, 100%, 50%);
-    margin-bottom: 5px;
-    
-  color:hsl(0, 0%, 100%);
+  border-radius: 12px;
+  padding: 5px 10px;
+  background: hsl(340, 100%, 50%);
+  margin-bottom: 5px;
+
+  color: hsl(0, 0%, 100%);
   font-family: Gilroy-Bold;
 }
 
-.profileData{
- 
+.profileData {
   margin-top: 50px;
   margin-left: 20px;
 }
 
-.profileData p{
-    margin-top: 5px;
-    margin-bottom: 0;
-    margin-right: 20%;
-    font-size: 10px;
-    font-family: Gilroy-medium;
-
+.profileData p {
+  margin-top: 5px;
+  margin-bottom: 0;
+  margin-right: 20%;
+  font-size: 10px;
+  font-family: Gilroy-medium;
 }
 
 .catchUpButton,
 .favouritesButton {
-    background: hsl(340, 100%, 50%);
-    color: white;
-    border: none;
-    padding: 5px 25px;
-    margin: 5px 5px 5px 0;
-    cursor: pointer;
-    border-radius: 12px;
-    font-size: 10px;
+  background: hsl(340, 100%, 50%);
+  color: white;
+  border: none;
+  padding: 5px 25px;
+  margin: 5px 5px 5px 0;
+  cursor: pointer;
+  border-radius: 12px;
+  font-size: 10px;
 }
 
 .favouritesButton {
-    background: #3333ff;
+  background: #3333ff;
 }
-
 
 /* Reels section */
 .reelsSection {
-    margin-top: 15px;
-    font-family: Gilroy-bold;
-    padding:  0 20px 20px 20px;
-   
+  margin-top: 15px;
+  font-family: Gilroy-bold;
+  padding: 0 20px 20px 20px;
 }
 
 .reelsSection p {
-   font-size: 10px;
-   
+  font-size: 10px;
 }
 .reelsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.reelCard {
+  position: relative;
+  width: 180px; /* Adjust based on your design */
+}
+
+.reelThumbnailContainer {
+  position: relative;
+}
+
+.reelThumbnail {
+  width: 100%;
+  height: 200px;
+  display: block;
+  border-radius: 13px;
+}
+
+.reelStats {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  padding: 8px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border-radius: 13px;
+}
+
+.reelStats p {
+  margin: 0;
+  padding: 0 4px;
+  font-size: 12px; /* Adjust based on your design */
+}
+
+@media (max-width: 480px) {
+  .popupContent {
+    background: white;
+    border-radius: 15px;
+
+    height: 80vh;
+
+    margin: 520px 20px;
+    overflow-y: auto;
+  }
+
+  .profileInfo {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-   
-  }
-  
-  .reelCard {
-    position: relative;
-    width: 180px; /* Adjust based on your design */
-   
-  }
-  
-  .reelThumbnailContainer {
-    position: relative;
-  }
-  
-  .reelThumbnail {
-    width: 100%;
-    height: 200px;
-    display: block;
-    border-radius: 13px;
-  }
-  
-  .reelStats {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    color: white;
-    padding: 8px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    margin-top: -70px;
+    margin-left: 0px;
+    padding: 10px;
+    justify-content: center;
     align-items: center;
+  }
+
+  .bannerImg {
+    width: 100%;
+    height: 80px;
+  }
+
+  .profileImg {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-bottom: 10px;
+  }
+  .profileData {
     text-align: center;
-    border-radius: 13px;
+    margin-top: 0;
+    margin-left: 0;
   }
-  
-  .reelStats p {
-    margin: 0;
-    padding: 0 4px;
-    font-size: 12px; /* Adjust based on your design */
+  .profileData p {
+    margin-bottom: 0;
+    margin-right: 0%;
+    font-size: 10px;
+    font-family: Gilroy-medium;
   }
-  
-@media (max-width:480px) {
-    .popupContent {
-        background: white;
-        border-radius: 15px;
-        
-        height: 80vh; 
-        
-        margin: 520px 20px ;
-        overflow-y: auto;
-    }
-    
-    .profileInfo {   
-        display: flex;
-        flex-direction: column;
-        margin-top: -70px;
-        margin-left: 0px;
-        padding: 10px;
-        justify-content: center;
-        align-items: center;
-        
-    }
 
-    .bannerImg {
-      width: 100%;
-      height: 80px;
-     
+  .profileData h4 {
+    color: black;
   }
-    
-    .profileImg {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        border: 3px solid white;
-        margin-bottom: 10px;
-       
-        
-    }
-    .profileData{
-        text-align: center;
-        margin-top: 0;
-        margin-left: 0;
-      }
-      .profileData p{
-        margin-bottom: 0;
-        margin-right: 0%;
-        font-size: 10px;
-        font-family: Gilroy-medium;
-    
-    }
 
-      .profileData h4{
-        color: black;
-      }
-
-      .reelsSection {
-        margin-top: 30px;
-        font-family: Gilroy-bold;
-        padding:  0 20px 20px 20px;
-       
-       
-    }
-    .closeButton {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        background: none;
-        border: none;
-        font-size: 12px;
-        cursor: pointer;
-    }
-    .profileLowersection{
-        transform: translateY(-5%);
-    }
+  .reelsSection {
+    margin-top: 30px;
+    font-family: Gilroy-bold;
+    padding: 0 20px 20px 20px;
+  }
+  .closeButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .profileLowersection {
+    transform: translateY(-5%);
+  }
 }

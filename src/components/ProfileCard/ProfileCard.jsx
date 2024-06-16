@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import ProfilePopup from './ProfilePopup';
 import styles from "./ProfileCard.module.css";
 import profileCardData from "./ProfileCardData";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ProfileCard = () => {
     const [selectedProfile, setSelectedProfile] = useState(null);
@@ -22,6 +24,15 @@ const ProfileCard = () => {
     const filteredProfiles = profileCardData.filter(profile =>
         profile.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+    useEffect(() => {
+        AOS.init({
+          offset: 100,
+          duration: 600,
+          easing: 'ease-in-sine',
+          delay: 100,
+        });
+      }, [])
 
     return (
         <div className={styles.profilecardCSS}>
