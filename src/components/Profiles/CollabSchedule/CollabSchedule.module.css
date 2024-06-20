@@ -48,7 +48,7 @@
   
   .customCalendar .react-calendar__tile {
     position: relative;
-    padding: 10px;
+    
     border-radius: 50%; /* Make each tile a circle */
     border: 1px solid red; /* Add a border to each tile */
   }

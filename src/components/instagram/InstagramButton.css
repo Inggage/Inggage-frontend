@@ -1,0 +1,23 @@
+/* src/InstagramButton.css */
+.instagram-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .instagram-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3897f0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .instagram-button button:hover {
+    background-color: #287bb5;
+  }
+  

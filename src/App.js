@@ -9,6 +9,7 @@ import SignupForm from "./components/SignupForm/SignupForm";
 import SignupForm2 from "./components/SignUpForm2/SignupForm2";
 import Profile from "./components/Profiles/Profile";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
+import InstagramButton from "./components/instagram/Instagram";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/Profilecard" element={<ProfileCard />}></Route>
           <Route path="/Profile" element={<Profile />}></Route>
           <Route path="/search_influencers" element={<ProfileCard />}></Route>
+          <Route path="/instagram" element={<InstagramButton />}></Route>
         </Routes>
       </Router>
       <Footer />
