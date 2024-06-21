@@ -50,9 +50,9 @@ const LandingPage = () => {
           <img src={bg1} alt="bg1" />
         </div>
         <p data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="1000">
-          Powerful, self-serve product and growth analytics to help you convert,
+          Powerful, self-serve product and growth analytics to help you convert, engage,<br/>and retain more users. Trusted by over 4,000 startups.
         </p>
-        <p data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="1000">engage, and retain more users. Trusted by over 4,000 startups.</p>
+        <p data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="1000"></p>
         <button className="StartBtn" onClick={handleClick} data-aos='fade-up'  data-aos-easing="ease-in-sine" data-aos-duration="1200">
           Get Started
         </button>

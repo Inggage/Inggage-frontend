@@ -40,7 +40,7 @@
 
 }
 
-.button {
+.form button {
   padding: 12px 24px;
   font-family: Gilroy-Medium;
 
@@ -51,6 +51,8 @@
   border: none;
   transition: background-color 0.3s, color 0.3s;
 }
+
+
 
 .formContainer {
   background: linear-gradient(93.27deg, #EA0063 5.26%, #FF74AF 106.71%);
