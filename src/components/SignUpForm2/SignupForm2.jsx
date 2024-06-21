@@ -15,6 +15,8 @@ const SignupForm2 = () => {
   const [userType, setUserType] = useState("Influencer");
   const [step, setStep] = useState(1);
   const [influencerData, setInfluencerData] = useState({
+    email:"",
+    displayname:"",
     userType: "Influencer",
     niche: [],
     primaryPlatform: "",
@@ -22,6 +24,8 @@ const SignupForm2 = () => {
     collaborations: "",
   });
   const [brandData, setBrandData] = useState({
+    email:"",
+    displayname:"",
     userType: "Brand",
     industry: "",
     websiteLink: "",
@@ -35,6 +39,7 @@ const SignupForm2 = () => {
 
   useEffect(() => {
     const storedFormData = JSON.parse(localStorage.getItem("formData"));
+    //console.log(storedFormData)
     if (storedFormData) {
       if (storedFormData.userType === "Influencer") {
         setInfluencerData(storedFormData);
@@ -56,9 +61,11 @@ const SignupForm2 = () => {
 
   const handleInfluencerChange = (e) => {
     const { name, value } = e.target;
+    const storedFormData = JSON.parse(localStorage.getItem("formData"));
+
     setInfluencerData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: value, email:storedFormData.email,displayname:storedFormData.displayName
     }));
   };
 
@@ -68,9 +75,12 @@ const SignupForm2 = () => {
 
   const handleBrandChange = (e) => {
     const { name, value } = e.target;
+
+    const storedFormData = JSON.parse(localStorage.getItem("formData"));
+
     setBrandData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: value, email:storedFormData.email,displayname:storedFormData.displayName
     }));
   };
 
@@ -121,7 +131,7 @@ const SignupForm2 = () => {
       try {
         await push(formDataRef, formData);
         alert("Data submitted successfully!");
-        console.log(formData)
+       // console.log(formData)
         navigate("/dashboard");
       } catch (error) {
         console.error("Error:", error);
