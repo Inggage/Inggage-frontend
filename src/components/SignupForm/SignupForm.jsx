@@ -27,6 +27,7 @@ const SignupForm = () => {
     },
     onError: (error) => console.log("Login Failed:", error),
     ux_mode: "popup",
+    mode: 'cors',
   });
 
   useEffect(() => {

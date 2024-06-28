@@ -4,6 +4,7 @@ import styles from "./Footer.module.css"; // Assume we've created a correspondin
 import logo from "../../assets/images/LogoWhite.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
+///import FontAwesomeIcon from "@fortawesome/fontawesome-svg-core"
 
 const Footer = () => {
   useEffect(() => {
@@ -46,6 +47,7 @@ const Footer = () => {
         </p>
         <div className={styles.buttonGroup}>
           {/* Button group will go here */}
+         
         </div>
         <div
           className={styles.footerText}
